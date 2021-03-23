@@ -1,0 +1,78 @@
+.iti__flag {
+
+    background-image: url(../intl-tel-input/build/img/flags.png)
+}
+
+@media (-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
+    .iti__flag {
+        background-image: url(../intl-tel-input/build/img/flags@2x.png)
+    }
+}
+
+;
+
+input.phone {
+    width: 100% !important;
+}
+
+.intl-tel-input {
+    width: 100%;
+}
+
+.hide {
+    display: none;
+}
+
+.valid-msg_val {
+    color: #5CB85C;
+    position: absolute;
+    right: 13px;
+    top: 6px;
+}
+
+.error-msg_val {
+    color: red;
+    position: absolute;
+    right: 13px;
+    top: 6px;
+}
+
+.country_code_block {
+    position: relative;
+}
+
+.iti--separate-dial-code {
+    display: block;
+}
+
+.vendor-admin-card .iti--separate-dial-code {
+    display: block;
+}
+
+.add-leaseform .iti--separate-dial-code .form-control.phone.required,
+#tenantAddForm .iti--separate-dial-code .form-control.phone.required,
+#editEmergencyDetails .iti--separate-dial-code .form-control.phone.required,
+#applicant_form #basictab3 .iti--separate-dial-code .form-control.phone.required,
+#createUserModal .country_code_block .iti--separate-dial-code .form-control.phone.required {
+    /* padding-left: 75px !important; */
+}
+
+#createLead .iti--separate-dial-code .form-control.phone.required {
+    /* padding-left: 70px !important; */
+}
+
+#createLead .iti__selected-flag {
+    padding: 0 7px 0 4px;
+}
+.iti__selected-flag {
+  max-width: 84px;
+  min-width: 66px;
+  padding:0 6px 0 6px;
+}
+
+@media screen and (min-width: 992px)and (max-width: 1120px) {
+  .iti--allow-dropdown input[type=tel]{
+    padding-right: 27px;
+  }
+}
