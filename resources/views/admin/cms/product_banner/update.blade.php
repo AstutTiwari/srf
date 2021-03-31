@@ -178,7 +178,7 @@ $(document).ready(function() {
                         hideAfter: 5000,
                         loader: false,
                     });
-					window.location.replace("{{route('admin.cms.banner')}}");	
+					window.location.replace("{{route('admin.cms.product.banner')}}");	
 				}
             },
             error: function (jqXHR, exception) {

@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 
 if (!function_exists('getDateTimeFormatWithHtml')) {
@@ -559,7 +560,7 @@ function validate_base64($base64data, array $allowedMime,$size)
     file_put_contents($tmpFile, $binaryData);
 
     // guard Against Invalid MimeType
-    $allowedMime = array_flatten($allowedMime);
+    $allowedMime = Arr::flatten($allowedMime);
 
     // no allowedMimeTypes, then any type would be ok
     if (empty($allowedMime)) {

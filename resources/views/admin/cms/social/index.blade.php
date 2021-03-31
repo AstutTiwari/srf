@@ -11,6 +11,7 @@
                 <div class="card-body leads-table-body">
                     <div class="section-title-top">
                         <div class="title-left">
+                          <a class="back-btn" href="{{ url()->previous() }}"><i class="mdi mdi-keyboard-backspace"></i>Back</a>
                           <h4 class="header-title">Social Links</h4>
                         </div>
                     </div>

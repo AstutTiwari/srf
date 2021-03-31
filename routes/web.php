@@ -43,6 +43,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
     Route::get('/admin/cms/product/banner/update/{id}',[App\Http\Controllers\Admin\Cms\ProductbannerController::class,'update'])->name('admin.cms.product.banner.update');
     // Route::post('/cms/banner/update','Cms\BannerController@uploadImage')->name('admin.banner.uploadImage');
     Route::post('/admin/cms/product/banner/store',[App\Http\Controllers\Admin\Cms\ProductbannerController::class,'store'])->name('admin.cms.product.banner.store');
+
+    
+    Route::get('/admin/cms/contactus',[App\Http\Controllers\Admin\Cms\ContactusController::class,'index'])->name('admin.contact');
+    // Route::post('/cms/banner/update','Cms\BannerController@uploadImage')->name('admin.banner.uploadImage');
+    Route::post('/admin/cms/contactus/update',[App\Http\Controllers\Admin\Cms\ContactusController::class,'store'])->name('admin.contactus.update');
 });
 
 

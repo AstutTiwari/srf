@@ -37,6 +37,8 @@ class LoginController extends Controller
      * @var string
      */
     use  ThrottlesLogins;
+
+
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
@@ -79,7 +81,7 @@ class LoginController extends Controller
     {
         if($user->hasRole('Admin')) 
             return redirect(route('admin.dashboard'));
-        return redirect(route('admin.dashboard'));           
+        return redirect(route('home.index'));           
     }
     public function authentication()
     {

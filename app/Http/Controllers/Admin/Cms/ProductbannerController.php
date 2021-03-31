@@ -73,7 +73,7 @@ class ProductbannerController extends Controller
             $attributes = $request->all();
             $validateArray = [
                 'banner_id' => 'required',
-                'slug' => 'required|unique:product_banners,slug',
+                'slug' => 'required|unique:product_banners,slug,'.$attributes['banner_id'],
                 'order' =>'required',
                 'title' => 'required|string',
                 'sub_title' => 'required|string',
