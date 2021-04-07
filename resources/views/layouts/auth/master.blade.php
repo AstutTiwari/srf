@@ -9,16 +9,19 @@
         <meta content="Coderthemes" name="author" />
         <meta name="keywords" content="@yield('meta_page_keyword')">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        @include('layouts.auth.head-script')
+        @include('layouts.auth.head-script') 
         
     </head>
 
-    <body class="auth-fluid-pages pb-0"> 
-        <div id="full-page-loader" class=""></div>
-        @include('layouts.auth.header')
-        @yield('content')
-        @include('layouts.auth.footer')
-        @include('layouts.auth.footer-script')
-        @include('layouts.auth.flash-message')
+    <body class="preload">
+    <!-- <body class="auth-fluid-pages pb-0">   -->
+        <div class="wrap">
+            <div id="full-page-loader" class=""></div>
+            @include('layouts.auth.header')
+            @yield('content')
+            @include('layouts.auth.footer')
+            @include('layouts.auth.footer-script')
+            @include('layouts.auth.flash-message')
+        </div>
     </body>
 </html>

@@ -1,3 +1,4 @@
+
 <link rel="shortcut icon" href="{{ URL::asset('assets/images/favicon.png') }}">
 <!-- Plugins CSS -->
 <link href="{{ URL::asset('assets/libs/bootstrap-datepicker/css/bootstrap-datepicker.min.css') }}" rel="stylesheet" type="text/css" />
@@ -11,11 +12,28 @@
 <link href="{{ URL::asset('/assets/css/app-creative.min.css') }}" rel="stylesheet" type="text/css" id="app-default-stylesheet" />
 
 <!-- Font Family -->
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700%7cPlayfair+Display:400,700,400i,700i" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <!-- icons -->
 <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
 <link href="{{ URL::asset('/assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
 <link href="{{ URL::asset('/css/frontend-header.css') }}" rel="stylesheet" type="text/css" />
+
+<link rel="stylesheet" type="text/css" href="{{ URL::asset('/assets/css/libs/font-awesome.min.css') }}"/>
+<link rel="stylesheet" type="text/css" href="{{ URL::asset('/assets/css/libs/ionicons.min.css') }}"/>
+<link rel="stylesheet" type="text/css" href="{{ URL::asset('/assets/css/libs/bootstrap.min.css') }}"/>
+<link rel="stylesheet" type="text/css" href="{{ URL::asset('/assets/css/libs/bootstrap-theme.min.css') }}"/>
+<link rel="stylesheet" type="text/css" href="{{ URL::asset('/assets/css/libs/jquery.fancybox.min.css') }}"/>
+<link rel="stylesheet" type="text/css" href="{{ URL::asset('/assets/css/libs/jquery-ui.min.css') }}"/>
+<link rel="stylesheet" type="text/css" href="{{ URL::asset('/assets/css/libs/owl.carousel.min.css') }}"/>
+<link rel="stylesheet" type="text/css" href="{{ URL::asset('/assets/css/libs/owl.transitions.min.css') }}"/>
+<link rel="stylesheet" type="text/css" href="{{ URL::asset('/assets/css/libs/jquery.mCustomScrollbar.min.css') }}"/>
+<link rel="stylesheet" type="text/css" href="{{ URL::asset('/assets/css/libs/owl.theme.min.css') }}"/>
+<link rel="stylesheet" type="text/css" href="{{ URL::asset('/assets/css/libs/animate.min.css') }}"/>
+<link rel="stylesheet" type="text/css" href="{{ URL::asset('/assets/css/libs/hover.min.css') }}"/>
+<link rel="stylesheet" type="text/css" href="{{ URL::asset('/assets/css/theme.css') }}" media="all"/>
+<link rel="stylesheet" type="text/css" href="{{ URL::asset('/assets/css/responsive.css') }}" media="all"/>
+<link rel="stylesheet" type="text/css" href="{{ URL::asset('/assets/css/browser.css') }}" media="all"/>
 <style type="text/css">
 	.error {
     color: red;
