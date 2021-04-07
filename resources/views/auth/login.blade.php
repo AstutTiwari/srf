@@ -1,4 +1,4 @@
-@extends('layouts.auth.master')
+@extends('layouts.auth.auth_master')
 @section('custom-css')
 <link href="{{ URL::asset('/css/custom.css') }}" rel="stylesheet" type="text/css" />
 @endsection
