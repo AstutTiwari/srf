@@ -20,6 +20,8 @@ class DatabaseSeeder extends Seeder
         $this->call(BannerTableSeeder::class);
         $this->call(ProductbannerTableSeeder::class);
         $this->call(ContactusTableDataSeeder::class);
-        
+        $this->call(MetalsTableSeeder::class);
+        $this->call(ShapeTableSeeder::class);
+        $this->call(ColorTableSeeder::class);
     }
 }

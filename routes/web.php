@@ -48,6 +48,27 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
     Route::get('/admin/cms/contactus',[App\Http\Controllers\Admin\Cms\ContactusController::class,'index'])->name('admin.contact');
     // Route::post('/cms/banner/update','Cms\BannerController@uploadImage')->name('admin.banner.uploadImage');
     Route::post('/admin/cms/contactus/update',[App\Http\Controllers\Admin\Cms\ContactusController::class,'store'])->name('admin.contactus.update');
+
+    Route::get('/admin/cms/products',[App\Http\Controllers\Admin\Cms\ProductController::class,'index'])->name('admin.product');
+    // Route::post('/cms/banner/update','Cms\BannerController@uploadImage')->name('admin.banner.uploadImage');
+    Route::post('/admin/cms/product/list',[App\Http\Controllers\Admin\Cms\ProductController::class,'list'])->name('admin.product.list');
+
+    
+    Route::get('/admin/cms/product/create',[App\Http\Controllers\Admin\Cms\ProductController::class,'createView'])->name('admin.product.create.view');
+    Route::post('/admin/cms/product/create/store',[App\Http\Controllers\Admin\Cms\ProductController::class,'createStore'])->name('admin.product.create.store');
+
+    Route::get('/admin/cms/product/update/{id}',[App\Http\Controllers\Admin\Cms\ProductController::class,'updateView'])->name('admin.product.update.view');
+    Route::post('/admin/cms/product/update/store',[App\Http\Controllers\Admin\Cms\ProductController::class,'updateStore'])->name('admin.product.update.store');
+
+    Route::get('/admin/cms/subproducts',[App\Http\Controllers\Admin\Cms\SubproductController::class,'index'])->name('admin.subproduct');
+    // Route::post('/cms/banner/update','Cms\BannerController@uploadImage')->name('admin.banner.uploadImage');
+    Route::post('/admin/cms/subproduct/list',[App\Http\Controllers\Admin\Cms\SubproductController::class,'list'])->name('admin.subproduct.list');
+    
+    Route::get('/admin/cms/sub/product/create',[App\Http\Controllers\Admin\Cms\SubproductController::class,'createView'])->name('admin.subproduct.create.view');
+    Route::post('/admin/cms/sub/product/create/store',[App\Http\Controllers\Admin\Cms\SubproductController::class,'createStore'])->name('admin.subproduct.create.store');
+
+    Route::get('/admin/cms/sub/product/update/{id}',[App\Http\Controllers\Admin\Cms\SubproductController::class,'updateView'])->name('admin.subproduct.update.view');
+    Route::post('/admin/cms/sub/product/update/store',[App\Http\Controllers\Admin\Cms\SubproductController::class,'updateStore'])->name('admin.subproduct.update.store');
 });
 
 

@@ -320,19 +320,20 @@ if(!function_exists('getRecurring'))
         return $html = '<span>' . $text . '</span>';
     }
 }
-if(!function_exists('getUserLocked'))
+if(!function_exists('getStatus'))
 {
-    function getUserLocked($status=null)
+    function getStatus($status=null)
     {
+        
         if($status=='1')
-        {
-            $class = "badge bg-soft-danger text-danger p-1";
-            $text = "Inactive";
-        }
-        else
         {
             $class = "badge bg-soft-success text-success p-1";
             $text = "Active";
+        }
+        else
+        {
+            $class = "badge bg-soft-danger text-danger p-1";
+            $text = "Inactive";
         }
         return $html = '<span class="' . $class . '">' . $text . '</span>';
     }
