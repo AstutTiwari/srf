@@ -12,7 +12,7 @@
     <div class="row">
         <div class="col-12">
             <div class="page-title-box">
-                <h4 class="page-title">Product Update</h4>
+                <h4 class="page-title">Sub Product Update</h4>
             </div>
         </div>
     </div>
@@ -28,14 +28,14 @@
                                         <div class="mb-3 col-md-6">
                                             <input type="hidden" name="banner_image" id="banner_image">
                                             <input type="hidden" name="product_id" id="product_id" value="{{@$product->id}}">
-		                                    <label class="col-form-label" for="slug">Name<span class="required">*</span></label>
-									    	{!! Form::text('slug',$product->slug,['class'=>'form-control required','id'=>'slug']) !!}
+                                            <label class="col-form-label" for="slug">Name<span class="required">*</span></label>
+									    	{!! Form::text('slug',@$product->slug,['class'=>'form-control required','id'=>'slug']) !!}
 									    	<label for="slug" id="slug-error" generated="true" class="is-invalid" style="display:none"></label>
 		                                </div>
                                         <div class="mb-3 col-md-6">
-		                                    <label class="col-form-label" for="category_id">Category<span class="required">*</span></label>
-									    	{!! Form::select('category_id',$category,$product->id,['class'=>'form-control selectpicker required','id'=>'category_id']) !!}
-									    	<label for="category_id" id="category_id-error" generated="true" class="is-invalid" style="display:none"></label>
+		                                    <label class="col-form-label" for="parent_id">Parent Category<span class="required">*</span></label>
+									    	{!! Form::select('parent_id',$parent_category,@$product->parent_id,['class'=>'form-control selectpicker required','data-live-search' => "true",'data-size' => "4",'id'=>'parent_id']) !!}
+									    	<label for="parent_id" id="parent_id-error" generated="true" class="is-invalid" style="display:none"></label>
 		                                </div>
                                         <div class="mb-3 col-md-6">
 		                                    <label class="col-form-label" for="title">Title<span class="required">*</span></label>
@@ -64,10 +64,10 @@
             								        $image = 'storage/'.@$product->banner_path;
             								    @endphp        
             								@endif
-                                            <ul class="single-upload" id="upload_banner">
+                                            <ul class="single-upload"> 
             									<li class="image-single">
-            										<img src="{{ URL::asset(@$image)}}" id="uploaded_image" name="image_ids" alt="image" class="img-fluid img-thumbnail">
-													<label for="image" id="image-error" generated="true"class="is-invalid" style="display:none"></label>
+            										<img src="{{ URL::asset(@$image)}}" id="uploaded_banner" name="image_ids" alt="image" class="img-fluid img-thumbnail">
+													<label for="uploaded_banner" id="uploaded_banner-error" generated="true"class="is-invalid" style="display:none"></label>
 												</li>
 											</ul>
                                         </div>
@@ -79,6 +79,137 @@
                                                     <label id="status-error" generated="true"class="is-invalid" style="display:none"></label>
                                                 </div>
                                             </div>
+                                        </div>
+                                        <p class="form-inner-title col-12">Product Detail</p> 
+                                        <div class="mb-3 col-md-2">
+                                            <label class="col-form-label" for="metal_type">Metal Type</label>
+                                            {!! Form::select('metal_type',$metals,@$product->info->metal_type,['class'=>'form-control selectpicker','data-live-search' => "true",'data-size' => "4",'id'=>'metal_type']) !!}
+                                            <label for="metal_type" id="metal_type-error" generated="true" class="is-invalid" style="display:none"></label>
+                                        </div>
+                                        <div class="mb-3 col-md-2">
+                                            <label class="col-form-label" for="purity">Purity</label>
+                                            {!! Form::number('purity',@$product->info->purity,['class'=>'form-control','id'=>'purity']) !!}
+                                            <label for="purity" id="purity-error" generated="true" class="is-invalid" style="display:none"></label>
+                                        </div>
+                                        <div class="mb-3 col-md-2">
+                                            <label class="col-form-label" for="seq_no">Sequence Number</label>
+                                            {!! Form::text('seq_no',@$product->info->seq_no,['class'=>'form-control','id'=>'seq_no']) !!}
+                                            <label for="seq_no" id="seq_no-error" generated="true" class="is-invalid" style="display:none"></label>
+                                        </div>
+                                        <div class="mb-3 col-md-2">
+                                            <label class="col-form-label" for="design_no">Design Number</label>
+                                            {!! Form::text('design_no',@$product->info->design_no,['class'=>'form-control','id'=>'design_no']) !!}
+                                            <label for="design_no" id="design_no-error" generated="true" class="is-invalid" style="display:none"></label>
+                                        </div>
+                                        <div class="mb-3 col-md-2">
+                                            <label class="col-form-label" for="g_wt">G Wait</label>
+                                            {!! Form::number('g_wt',@$product->info->g_wt,['class'=>'form-control','id'=>'g_wt']) !!}
+                                            <label for="g_wt" id="g_wt-error" generated="true" class="is-invalid" style="display:none"></label>
+                                        </div>
+                                        <div class="mb-3 col-md-2">
+                                            <label class="col-form-label" for="n_wt">N Wait</label>
+                                            {!! Form::number('n_wt',@$product->info->n_wt,['class'=>'form-control','id'=>'n_wt']) !!}
+                                            <label for="n_wt" id="n_wt-error" generated="true" class="is-invalid" style="display:none"></label>
+                                        </div>
+                                        <div class="mb-3 col-md-2">
+                                            <label class="col-form-label" for="diamand_wt">Diamond Wait</label>
+                                            {!! Form::number('diamand_wt',@$product->info->diamand_wt,['class'=>'form-control','id'=>'diamand_wt']) !!}
+                                            <label for="diamand_wt" id="diamand_wt-error" generated="true" class="is-invalid" style="display:none"></label>
+                                        </div>
+                                        <div class="mb-3 col-md-2">
+                                            <label class="col-form-label" for="diamand_pics">Diamond Pics</label>
+                                            {!! Form::number('diamand_pics',@$product->info->diamand_pics,['class'=>'form-control','id'=>'diamand_pics']) !!}
+                                            <label for="diamand_pics" id="diamand_pics-error" generated="true" class="is-invalid" style="display:none"></label>
+                                        </div>
+                                        <div class="mb-3 col-md-2">
+                                            <label class="col-form-label" for="color_stone_wt">Color Stone Weight</label>
+                                            {!! Form::number('color_stone_wt',@$product->info->color_stone_wt,['class'=>'form-control','id'=>'color_stone_wt']) !!}
+                                            <label for="color_stone_wt" id="color_stone_wt-error" generated="true" class="is-invalid" style="display:none"></label>
+                                        </div>
+                                        <div class="mb-3 col-md-2">
+                                            <label class="col-form-label" for="clarity">Clarity</label>
+                                            {!! Form::text('clarity',@$product->info->clarity,['class'=>'form-control','id'=>'clarity']) !!}
+                                            <label for="clarity" id="clarity-error" generated="true" class="is-invalid" style="display:none"></label>
+                                        </div>
+                                        <div class="mb-3 col-md-2">
+                                            <label class="col-form-label" for="color_id">Color</label>
+                                            {!! Form::select('color_id',$color,@$product->info->color_id,['class'=>'form-control selectpicker','data-live-search' => "true",'data-size' => "4",'id'=>'color_id']) !!}
+                                            <label for="color_id" id="color_id-error" generated="true" class="is-invalid" style="display:none"></label>
+                                        </div>
+                                        <div class="mb-3 col-md-2">
+                                            <label class="col-form-label" for="quality">Quality</label>
+                                            {!! Form::text('quality',@$product->info->quality,['class'=>'form-control','id'=>'quality']) !!}
+                                            <label for="quality" id="quality-error" generated="true" class="is-invalid" style="display:none"></label>
+                                        </div>
+                                        <div class="mb-3 col-md-2">
+                                            <label class="col-form-label" for="shape_id">Shape</label>
+                                            {!! Form::select('shape_id',$shape,@$product->info->shape_id,['class'=>'form-control selectpicker','data-live-search' => "true",'data-size' => "4",'id'=>'shape_id']) !!}
+                                            <label for="shape_id" id="shape_id-error" generated="true" class="is-invalid" style="display:none"></label>
+                                        </div>
+                                        <div class="mb-3 col-md-2">
+                                            <label class="col-form-label" for="size">Size</label>
+                                            {!! Form::text('size',@$product->info->size,['class'=>'form-control','id'=>'size']) !!}
+                                            <label for="size" id="size-error" generated="true" class="is-invalid" style="display:none"></label>
+                                        </div>
+                                        <div class="mb-3 col-md-2">
+                                            <label class="col-form-label" for="metal_rate">Metal Rate</label>
+                                            {!! Form::text('metal_rate',@$product->info->metal_rate,['class'=>'form-control','id'=>'metal_rate']) !!}
+                                            <label for="metal_rate" id="metal_rate-error" generated="true" class="is-invalid" style="display:none"></label>
+                                        </div>
+                                        <div class="mb-3 col-md-2">
+                                            <label class="col-form-label" for="polish_charges">Polish Charges</label>
+                                            {!! Form::text('polish_charges',@$product->info->polish_charges,['class'=>'form-control','id'=>'polish_charges']) !!}
+                                            <label for="polish_charges" id="polish_charges-error" generated="true" class="is-invalid" style="display:none"></label>
+                                        </div>
+                                        <div class="mb-3 col-md-2">
+                                            <label class="col-form-label" for="making_charges">Making Charges</label>
+                                            {!! Form::number('making_charges',@$product->info->making_charges,['class'=>'form-control','id'=>'making_charges']) !!}
+                                            <label for="making_charges" id="making_charges-error" generated="true" class="is-invalid" style="display:none"></label>
+                                        </div>
+                                        <div class="mb-3 col-md-2">
+                                            <label class="col-form-label" for="metal_value">Metal Value</label>
+                                            {!! Form::text('metal_value',@$product->info->metal_value,['class'=>'form-control','id'=>'metal_value']) !!}
+                                            <label for="metal_value" id="metal_value-error" generated="true" class="is-invalid" style="display:none"></label>
+                                        </div>
+                                        <div class="mb-3 col-md-2">
+                                            <label class="col-form-label" for="diamond_value">Diamond Value</label>
+                                            {!! Form::text('diamond_value',@$product->info->diamond_value,['class'=>'form-control','id'=>'diamond_value']) !!}
+                                            <label for="diamond_value" id="diamond_value-error" generated="true" class="is-invalid" style="display:none"></label>
+                                        </div>
+                                        <div class="mb-3 col-md-2">
+                                            <label class="col-form-label" for="labour_value">Labour Value</label>
+                                            {!! Form::text('labour_value',@$product->info->labour_value,['class'=>'form-control','id'=>'labour_value']) !!}
+                                            <label for="labour_value" id="labour_value-error" generated="true" class="is-invalid" style="display:none"></label>
+                                        </div>
+                                        <div class="mb-3 col-md-2">
+                                            <label class="col-form-label" for="diamond_handling_charge">Diamond Handling</label>
+                                            {!! Form::text('diamond_handling_charge',@$product->info->diamond_handling_charge,['class'=>'form-control','id'=>'diamond_handling_charge']) !!}
+                                            <label for="diamond_handling_charge" id="diamond_handling_charge-error" generated="true" class="is-invalid" style="display:none"></label>
+                                        </div>
+                                        <div class="mb-3 col-md-2">
+                                            <label class="col-form-label" for="total_value">Total Value</label>
+                                            {!! Form::text('total_value',@$product->info->total_value,['class'=>'form-control','id'=>'total_value']) !!}
+                                            <label for="total_value" id="total_value-error" generated="true" class="is-invalid" style="display:none"></label>
+                                        </div>
+                                        <div class="mb-3 col-md-2">
+                                            <label class="col-form-label" for="discount_value">Discount Value</label>
+                                            {!! Form::text('discount_value',@$product->info->discount_value,['class'=>'form-control','id'=>'discount_value']) !!}
+                                            <label for="discount_value" id="discount_value-error" generated="true" class="is-invalid" style="display:none"></label>
+                                        </div>
+                                        <div class="mb-3 col-md-2">
+                                            <label class="col-form-label" for="final_value">Final Value</label>
+                                            {!! Form::text('final_value',@$product->info->final_value,['class'=>'form-control','id'=>'final_value']) !!}
+                                            <label for="final_value" id="final_value-error" generated="true" class="is-invalid" style="display:none"></label>
+                                        </div>
+                                        <div class="mb-3 col-md-2">
+                                            <label class="col-form-label" for="gst">Gst</label>
+                                            {!! Form::text('gst',@$product->info->gst,['class'=>'form-control','id'=>'gst']) !!}
+                                            <label for="gst" id="gst-error" generated="true" class="is-invalid" style="display:none"></label>
+                                        </div>
+                                        <div class="mb-3 col-md-2">
+                                            <label class="col-form-label" for="rate">Rate</label>
+                                            {!! Form::select('rate',['1'=>'1','2'=>'2','3'=>'3','4'=>'4','5'=>'5'],@$product->info->rate,['class'=>'form-control selectpicker','id'=>'rate']) !!}
+                                            <label for="rate" id="rate-error" generated="true" class="is-invalid" style="display:none"></label>
                                         </div>
                                         <div class="form-group mb-3 mt-2 col-md-12 btn-group">
                                             <a href="{{ url()->previous() }}" class="btn btn-cancel btn-outline-primary">Cancel</a>
@@ -112,7 +243,7 @@ $(document).ready(function(e){
         l = Ladda.create( document.querySelector('#product-section .btn-submit') );
         l.start();
         $.ajax({
-           url: "{{route('admin.product.update.store')}}",
+           url: "{{route('admin.subproduct.update.store')}}",
             method: "POST",
             dataType: 'json',
             data: $("#product-section").serialize(),
@@ -150,7 +281,7 @@ $(document).ready(function(e){
                         hideAfter: 5000,
                         loader: false,
                     });
-					window.location.replace("{{route('admin.product')}}");
+					window.location.replace("{{route('admin.subproduct')}}");
 				}
             },
             error: function (jqXHR, exception) {
@@ -209,8 +340,8 @@ $('#banner').FancyFileUpload({
         {
             var reader = new FileReader();
             reader.onload = function(){
-                $("#uploaded_image").attr("src", reader.result);
-                $('#logo_note').addClass('d-none');
+                $('.upload_banner').removeClass('d-none');
+                $("#uploaded_banner").attr("src", reader.result);
                 $("#banner_image").val(reader.result);
             }
             reader.readAsDataURL(file);

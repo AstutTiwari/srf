@@ -36,6 +36,7 @@
                             <a href="{{route('admin.cms.index')}}" class="dropdown-item">Home Page</a>
                             <a href="{{route('admin.product')}}" class="dropdown-item">Product</a>
                             <a href="{{route('admin.subproduct')}}" class="dropdown-item">Sub Product</a>
+                            <a href="{{route('admin.popularproduct')}}" class="dropdown-item">Popular Product</a>
                             <a href="#" class="dropdown-item">Terms of Service</a>
                             <a href="#" class="dropdown-item">Privacy Policy</a>
                             {{--<a href="{{route('admin.expense')}}" class="dropdown-item">Expense</a>--}}

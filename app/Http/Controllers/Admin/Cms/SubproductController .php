@@ -61,7 +61,7 @@ class SubproductController extends Controller
             $str = '<div class="btn-group dropdown">
             <a href="javascript: void(0);" class="table-action-btn dropdown-toggle arrow-none btn btn-light btn-sm" data-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-horizontal"></i></a>
             <div class="dropdown-menu dropdown-menu-right">
-            <a data-toggle="tooltip" data-placement="top" title="Product Detail" class="dropdown-item" href="'.route('admin.product.update.view',$query->id).'"><i class="fas fa-landmark mr-1 text-muted font-18 vertical-middle"></i>Update</a>
+            <a data-toggle="tooltip" data-placement="top" title="Product Detail" class="dropdown-item" href="'.route('admin.subproduct.update.view',$query->id).'"><i class="fas fa-landmark mr-1 text-muted font-18 vertical-middle"></i>Update</a>
             </div></div>';
             return $str;
           })
@@ -188,8 +188,11 @@ class SubproductController extends Controller
             $product = Product::find($request->id);
             if($product)
             {
-                $category = ProductBanner::where('status','1')->pluck('title','id')->toArray();
-                return view('admin.cms.product.update',compact('product','category'));
+                $color = Color::where('status','1')->pluck('name','id')->toArray();
+                $shape = Shape::where('status','1')->pluck('name','id')->toArray();
+                $metals = Metal::where('status','1')->pluck('name','id')->toArray();
+                $parent_category = Product::where('status','1')->where('parent_id','0')->pluck('slug','id')->toArray();
+                return view('admin.cms.sub_product.update',compact('product','parent_category','metals','shape','color'));
             }
             return response()->json(['success' => false, "error" => 'Product does not exist']);
         }
@@ -201,34 +204,60 @@ class SubproductController extends Controller
         {
             $attributes = $request->all();
             $validateArray = [
-                'product_id'=>'required',
-                'slug' => 'required',
-                'category_id' => 'required',
-                'title' => 'required|string',
-                'sub_title' => 'required|string',
-                'banner_image' => ['nullable',new ValidateIsimage()]
-            ];
-            $validator = Validator::make($attributes, $validateArray);
-            if ($validator->fails())
-            {
-                return response()->json(["success" => false, 'type' => 'validation-error','error' => $validator->errors()]);
-            }
-            $product = Product::find($request->product_id);
+              'product_id' => 'required',
+              'slug' => 'required',
+              'parent_id' => 'required',
+              'title' => 'required|string',
+               'sub_title' => 'required|string',
+               //'banner_image' => ['required',new ValidateIsimage()],
+               'rate'=>'nullable',
+                'metal_type'=>'nullable',
+                'purity'=>'nullable',
+                'seq_no'=>'nullable',
+                'design_no'=>'nullable',
+                'g_wt'=>'nullable',
+                'n_wt'=>'nullable',
+                'diamand_wt'=>'nullable',
+                'diamand_pics'=>'nullable',
+                'color_stone_wt'=>'nullable',
+                'clarity'=>'nullable',
+                'color_id'=>'nullable',
+                'quality'=>'nullable',
+                'shape_id'=>'nullable',
+                'size'=>'nullable',
+                'metal_rate'=>'nullable',
+                'polish_charges'=>'nullable',
+                'making_charges'=>'nullable',
+                'metal_value'=>'nullable',
+                'diamond_value'=>'nullable',
+                'labour_value'=>'nullable',
+                'diamond_handling_charge'=>'nullable',
+                'total_value'=>'nullable',
+                'discount_value'=>'nullable',
+                'final_value'=>'nullable',
+                'gst'=>'nullable',
+          ];
+          $validator = Validator::make($attributes, $validateArray);
+          if ($validator->fails())
+          {
+              return response()->json(["success" => false, 'type' => 'validation-error','error' => $validator->errors()]);
+          }
+          $product = Product::find($request->product_id);
             if(!$product)
             {
                 return response()->json(['success' => false, "error" => 'Product does not exist']);
             }
+            $category = ProductBanner::find($attributes['parent_id']);
             $product_data = [
                 'slug'=>$attributes['slug'],
-                'category_id'=>$attributes['category_id'],
+                'category_id'=>$category->id,
                 'title' => $attributes['title'],
                 'sub_title' => $attributes['sub_title'],
                 'status'=>isset($attributes['status'])?'1':'0',
-                'parent_id'=>'0'
+                'parent_id'=>$attributes['parent_id']
             ];
-            if(isset($attributes['banner_image']) && !empty($attributes['banner_image']))
+          if(isset($attributes['banner_image']) && !empty($attributes['banner_image']))
             {
-
                 $validateArray = [
                     'banner_image' => ['required',new ValidateIsimage()],
                 ];
@@ -244,10 +273,6 @@ class SubproductController extends Controller
                 $unique_name = rand().'.'. $extension;
                 $filePath = 'product/'. $unique_name;
                 Storage::disk('public')->put($filePath, base64_decode($file));
-                if($product->banner_path)
-                {
-                    Storage::disk('public')->delete($product->banner_path);
-                }
                 $image_data = [
                     'banner_name' => $unique_name,
                     'banner_path' => $filePath,
@@ -255,8 +280,38 @@ class SubproductController extends Controller
                 $product_data = array_merge($product_data,$image_data);
             }
             $product->update($product_data);
-            return response()->json(["success" => true,'message'=>'Product has been updated successfully!']);
+           
+            $product->info->update([
+                'product_id'=>$product->id,
+                'rate'=>$attributes['rate'],
+                'metal_type'=>$attributes['metal_type'],
+                'purity'=>$attributes['purity'],
+                'seq_no'=>$attributes['seq_no'],
+                'design_no'=>$attributes['design_no'],
+                'g_wt'=>$attributes['g_wt'],
+                'n_wt'=>$attributes['n_wt'],
+                'diamand_wt'=>$attributes['diamand_wt'],
+                'diamand_pics'=>$attributes['diamand_pics'],
+                'color_stone_wt'=>$attributes['color_stone_wt'],
+                'clarity'=>$attributes['clarity'],
+                'color_id'=>$attributes['color_id'],
+                'quality'=>$attributes['quality'],
+                'shape_id'=>$attributes['shape_id'],
+                'size'=>$attributes['size'],
+                'metal_rate'=>$attributes['metal_rate'],
+                'polish_charges'=>$attributes['polish_charges'],
+                'making_charges'=>$attributes['making_charges'],
+                'metal_value'=>$attributes['metal_value'],
+                'diamond_value'=>$attributes['diamond_value'],
+                'labour_value'=>$attributes['labour_value'],
+                'diamond_handling_charge'=>$attributes['diamond_handling_charge'],
+                'total_value'=>$attributes['total_value'],
+                'discount_value'=>$attributes['discount_value'],
+                'final_value'=>$attributes['final_value'],
+                'gst'=>$attributes['gst']
+            ]);
+          return response()->json(["success" => true,'message'=>'Product has been updated successfully!']);
         }
-        return response()->json(['success' => false, "error" => 'Un authorised request']); 
+        return response()->json(['success' => false, "error" => 'Un authorised request']);
    }
 }

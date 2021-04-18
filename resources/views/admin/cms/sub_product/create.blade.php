@@ -275,7 +275,7 @@ $(document).ready(function(e){
                         hideAfter: 5000,
                         loader: false,
                     });
-					window.location.replace("{{route('admin.product')}}");
+					window.location.replace("{{route('admin.subproduct')}}");
 				}
             },
             error: function (jqXHR, exception) {
