@@ -52,7 +52,7 @@ class SubProductController extends Controller
             return $query->sub_title;
         })
         ->addColumn('category',function($query){
-            return $query->category->name;
+            return $query->category->slug;
         })
         ->addColumn('status',function($query){
             return getStatus($query->status);
