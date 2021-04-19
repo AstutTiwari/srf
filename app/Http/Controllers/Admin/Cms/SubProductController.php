@@ -19,7 +19,7 @@ use Yajra\Datatables\Datatables;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
-class SubproductController extends Controller
+class SubProductController extends Controller
 {
     public function index()
     {
@@ -136,7 +136,7 @@ class SubproductController extends Controller
             
             //$banner_data = array_merge($banner_data,$image_data);
         }
-        $category = ProductBanner::find($attributes['parent_id']);
+        $category = Product::find($attributes['parent_id']);
         $product = Product::create([
             'slug'=>$attributes['slug'],
             'category_id'=>$category->id,

@@ -23,5 +23,6 @@ class DatabaseSeeder extends Seeder
         $this->call(MetalsTableSeeder::class);
         $this->call(ShapeTableSeeder::class);
         $this->call(ColorTableSeeder::class);
+        $this->call(WeddingbannerTableSeeder::class);
     }
 }
