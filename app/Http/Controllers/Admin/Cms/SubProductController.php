@@ -247,10 +247,10 @@ class SubProductController extends Controller
             {
                 return response()->json(['success' => false, "error" => 'Product does not exist']);
             }
-            $category = ProductBanner::find($attributes['parent_id']);
+            
             $product_data = [
                 'slug'=>$attributes['slug'],
-                'category_id'=>$category->id,
+                'category_id'=>$product->category_id,
                 'title' => $attributes['title'],
                 'sub_title' => $attributes['sub_title'],
                 'status'=>isset($attributes['status'])?'1':'0',
