@@ -1,5 +1,7 @@
 @extends('layouts.auth.master')
 @section('content')
+
+
 <section id="content" >
 		<div class="banner-slider banner-jewelry2 bg-slider parallax-slider">
 			<div class="wrap-item" data-navigation="true" data-transition="fade" data-itemscustom="[[0,1]]">
@@ -35,9 +37,13 @@
 				</div>
 			</div>
 		</div>
-	
+
 		<!-- End Banner Slider -->
     <div class="container">
+        
+        	
+
+	
 		<div class="list-banner-jewelry2">
 			<div class="row">
 				<div class="col-sm-6 col-xs-12">
@@ -73,6 +79,8 @@
 						</div>
 					</div>
 				</div>
+				
+				
 			</div>
 					<div class="row">
 				    	<div class="col-sm-6 col-xs-12">
@@ -117,7 +125,7 @@
 		<div class="product-bestsale-jewelry">
 			<div class="container">
 				<div class="title-box2 text-center">
-					<h2 class="title24 dark play-font font-italic">Best Selling Products</h2>
+					<h2 class="title24 dark play-font ">Best Selling Products</h2>
 					<img src="images/home/jewelry2/line-black.png" alt="" />
 				</div>
 				<div class="box-best-seller9">
@@ -319,11 +327,27 @@
 							
 							<h3 class="title18 white font-italic play-font">Jwellery Engraving</h3>
 							<h2 class="title30 white text-uppercase play-font">Engrave your design</h2>
-							<a href="#" class="link-arrow text-uppercase white wobble-horizontal">Shop all</a>
+							<div id="contact">Drop Your Design</div>
+
+							<div id="contactForm">
+                                    
+							  <h1>Drop Your Design</h1>
+							  <small>We'll get back to you as quickly as possible</small>
+							  
+							  <form action="#">
+							    
+							    <input placeholder="Drop Your Design" type="images" required />
+							    <textarea placeholder="Comment"></textarea>
+							    <input class="formBtn" type="submit" />
+							    <input class="formBtn" type="reset" />
+							  </form>
+							</div>
+
 						</div>
 					</div>
-					<!-- End Banner -->
 				</div>
+					<!-- End Banner -->
+				
 				<div class="col-sm-4 col-xs-12">
 					<div class="banner-adv diamond-collect banner-adv2 zoom-rotate">
 						<a href="#" class="adv-thumb-link"><img src="images/home/jewelry2/diamond.jpg" alt=""></a>
@@ -335,13 +359,13 @@
 					</div>
 				</div>
 			</div>
-			
+		</div>	
 			<!-- End List Cat -->
-		</div>
+		
 		<div class="product-featured-jewelry2">
 			<div class="container">
 				<div class="title-box2 text-center">
-					<h2 class="title24 dark play-font font-italic">Latest Collection</h2>
+					<h2 class="title24 dark play-font">Latest Collection</h2>
 					<img src="images/home/jewelry2/line-black.png" alt="" />
 				</div>
 				<div class="product-slider">
@@ -474,68 +498,74 @@
 		
 			<!-- End Wedding Jwelery Banner -->
 			<div class="list-cat-jewelry2">
-				<div class="row">
+				
 					<div class="title-box2 text-center">
-					<h2 class="title24 dark play-font font-italic">Popular Jwellery</h2>
-					<img src="images/home/jewelry2/line-black.png" alt="" />
-				</div>
-					
+					<h2 class="title24 white play-font">Popular Jwellery</h2>
+					<img src="images/home/jewelry2/line-white.png" alt="" />
+			    	</div>
+				<div class="list-cat2">
+					<div class="row">	
 					<div class="col-sm-4 col-xs-12">
 						<div class="item-cat-jewelry2 text-center">
 							<a href="#" class="pop"><img src="images/home/jewelry2/ring1.jpg" alt="" /></a>
-							<h3 class="title18 play-font font-italic"><a href="#" class="dark">Nose Pins</a></h3>
-							<img class="line-icon" src="images/home/jewelry2/line-black.png" alt="" />
-							<a href="#" class="opacity dark text-uppercase wobble-top">Shop Now</a>
+							<h3 class="title18 play-font"><a href="#" class="white">Nose Pins</a></h3>
+							<img class="line-icon" src="images/home/jewelry2/line-white.png" alt="" />
+							<a href="#" class="opacity white text-uppercase wobble-top">Shop Now</a>
 						</div>
 					</div>
 					<div class="col-sm-4 col-xs-12">
 						<div class="item-cat-jewelry2 text-center">
 							<a href="#" class="pop"><img src="images/home/jewelry2/ring2.jpg" alt="" /></a>
-							<h3 class="title18 play-font font-italic"><a href="#" class="dark">Pendants & Charms</a></h3>
-							<img class="line-icon" src="images/home/jewelry2/line-black.png" alt="" />
-							<a href="#" class="opacity dark text-uppercase wobble-top">Shop Now</a>
+							<h3 class="title18 play-font "><a href="#" class="white">Pendants & Charms</a></h3>
+							<img class="line-icon" src="images/home/jewelry2/line-white.png" alt="" />
+							<a href="#" class="opacity white text-uppercase wobble-top">Shop Now</a>
 						</div>
 					</div>
 					<div class="col-sm-4 col-xs-12">
 						<div class="item-cat-jewelry2 text-center">
 							<a href="#" class="pop"><img src="images/home/jewelry2/ring3.jpg" alt="" /></a>
-							<h3 class="title18 play-font font-italic"><a href="#" class="dark">Earrings Collection</a></h3>
-							<img class="line-icon" src="images/home/jewelry2/line-black.png" alt="" />
-							<a href="#" class="opacity dark text-uppercase wobble-top">Shop Now</a>
+							<h3 class="title18 play-font"><a href="#" class="white">Earrings Collection</a></h3>
+							<img class="line-icon" src="images/home/jewelry2/line-white.png" alt="" />
+							<a href="#" class="opacity white text-uppercase wobble-top">Shop Now</a>
 						</div>
 					</div>
 				</div>
-			</div>
+		   	</div>
+		   </div>
+			
 
 			<!-- End Popular Jwellery -->
 
 			
 	
-		<div class="testimo-jewelry2 parallax" data-image="images/home/jewelry2/parallax.jpg">
+		<div class="testimo-jewelry2 parallax" >
+		   
+		    
 			<div class="container">
-				<div class="title-box2 text-center">
-					<h2 class="title24 white play-font font-italic">What People Say</h2>
-					<img src="images/home/jewelry2/line-white.png" alt="" />
-				</div>
-				<div class="testimo-slider2">
-					<div class="wrap-item" data-navigation="true" data-transition="fade" data-autoplay="true" data-itemscustom="[[0,1]]">
-						<div class="item-testimo2 text-center">
-							<p class="desc white play-font font-italic">These guys have been absolutely outstanding. When I needed them they came through in a big way! I know that if you buy this theme, you'll get the one thing we all look for when we buy on Themeforest, and that's real support for the craziest of requests! I highly recommend this theme and these people!</p>
-							<h3 class="title18 font-bold play-font"><a href="#" class="white">Linh Rua Nguyen</a></h3>
-							<span class="opacity white">Css Html Development</span>
-						</div>
-						<div class="item-testimo2 text-center">
-							<p class="desc white play-font font-italic">I know that if you buy this theme, you'll get the one thing we all look for when we buy on Themeforest, and that's real support for the craziest of requests! I highly recommend this theme and these people! These guys have been absolutely outstanding. When I needed them they came through in a big way! </p>
-							<h3 class="title18 font-bold play-font"><a href="#" class="white">Bach Mai Xuan</a></h3>
-							<span class="opacity white">Php Wordpress Development</span>
-						</div>
-						<div class="item-testimo2 text-center">
-							<p class="desc white play-font font-italic">These guys have been absolutely outstanding. When I needed them they came through in a big way! I know that if you buy this theme, you'll get the one thing we all look for when we buy on Themeforest, and that's real support for the craziest of requests! I highly recommend this theme and these people!</p>
-							<h3 class="title18 font-bold play-font"><a href="#" class="white">Linh Rua Nguyen</a></h3>
-							<span class="opacity white">Css Html Development</span>
-						</div>
+			    <div class="row">
+				<div class="col-sm-10 col-xs-12">
+			
+				<script defer async src='https://cdn.trustindex.io/loader.js?9413fed2259d254b6e5d6ecea6'></script>
 					</div>
-				</div>
+					<div class="col-sm-2 col-xs-12">
+					<div id="banner1"></div>
+					</div>
+					</div>
+					
+				
+		</div>
+		</section>
+		<div class="container">
+		    <h2 class="title36 play-font  white text-center text-uppercase font-bold">Why Shriram Jewellers?</h2>
+			<div class="list-service-footer">
+				<ul class="list-none">
+					<li><a href="#"><img src="images/home/jewelry2/icon1.png" alt="" /></a> <span class="desc dark opaci">REMOTE CONSULTATION</span></li>
+					<li><a href="#"><img src="images/home/jewelry2/icon2.png" alt="" /></a> <span class="desc dark opaci">FREE AFTER CARE</span></li>
+					<li><a href="#"><img src="images/home/jewelry2/icon3.png" alt="" /></a> <span class="desc dark opaci">TESTED & CERTIFIED DIAMONDS</span></li>
+					<li><a href="#"><img src="images/home/jewelry2/icon5.jpg" alt="" /></a> <span class="desc dark opaci">HALLMARK JWELLERY</span></li>
+					<li><a href="#"><img src="images/home/jewelry2/icon4.png" alt="" /></a> <span class="desc dark opaci">GUARANTEED PAYBACK</span></li>
+				</ul>
 			</div>
 		</div>
+	
 @endsection

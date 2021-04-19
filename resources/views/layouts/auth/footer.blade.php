@@ -1,16 +1,4 @@
 <footer id="footer">
-    <div class="container">
-        <div class="list-service-footer">
-            <ul class="list-none">
-                <li><a href="#"><img src="images/home/jewelry2/icon1.png" alt="" /></a> <span class="desc dark opaci">REMOTE CONSULTATION</span></li>
-                <li><a href="#"><img src="images/home/jewelry2/icon2.png" alt="" /></a> <span class="desc dark opaci">FREE AFTER CARE</span></li>
-                <li><a href="#"><img src="images/home/jewelry2/icon3.png" alt="" /></a> <span class="desc dark opaci">TESTED & CERTIFIED DIAMONDS</span></li>
-                <li><a href="#"><img src="images/home/jewelry2/icon5.jpg" alt="" /></a> <span class="desc dark opaci">HALLMARK JWELLERY</span></li>
-                <li><a href="#"><img src="images/home/jewelry2/icon4.png" alt="" /></a> <span class="desc dark opaci">GUARANTEED PAYBACK</span></li>
-            </ul>
-        </div>
-    </div>
-    <footer id="footer">
     <div class="footer2 bg-dark">
         <div class="container">
             <div class="main-footer2">
@@ -28,17 +16,15 @@
                     <div class="col-md-4 col-sm-4 col-xs-12">
                         <div class="block-footer2">
                             <div class="logo logo-footer2 text-center">
-                                <a href="index-2.html">
                                 
-                                    <strong class="play-font font-normal title30 white text-uppercase">SR</strong>
-                                    <span class="play-font font-normal title30 white">Jwellers</span>
+                            <a href="#" ><img src="images/home/fashion/logo1a.png" alt=""></a>
                                 </a>
                             </div>
                             <h2 class="title18 play-font  white text-center text-uppercase font-bold">FOLLOW US ON</h2>
                             <div class="social-network-footer text-center">
-                                <a href="#" class="inline-block round"><i class="fa fa-facebook"></i></a>
-                                <a href="#" class="inline-block round"><i class="fa fa-twitter"></i></a>
-                                <a href="#" class="inline-block round"><i class="fa fa-pinterest-p"></i></a>
+                                <a href="#" class="title12 white inline-block round"><i class="fa fa-facebook"></i></a>
+                                <a href="#" class="title12 white inline-block round"><i class="fa fa-twitter"></i></a>
+                                <a href="#" class="inline-block round"><i class="fa fa-instagram"></i></a>
                             </div>
                         </div>
                     </div>
@@ -67,7 +53,7 @@
                                 </li>
                                 <li>
                                     <i class="fa fa-envelope white"></i>
-                                    <a class="white opaci" href="mailto:demo@example.com">shriram@shriramjwellwers.in</a>
+                                    <a class="white opaci" href="mailto:demo@example.com">shriram@shriramjewellers.in</a>
                                 </li>
                             </ul>
                         </div>
@@ -81,7 +67,7 @@
                     <li><a href="#" class="white opaci">SITEMAP</a></li>
                     <li><a href="#" class="white opaci">TERMS & CONDITIONS</a></li>
                     <li><a href="#" class="white opaci">RETURN POLICY</a></li>
-                    <li><h2 class="title18 play-font white text-uppercase font-bold">GIFT CARDS</h2></li>
+                   
                     <li><a href="#" class="white opaci">Privacy &amp; Cookies</a></li>
                     <li><a href="about.html" class="white opaci">About Us</a></li>
                 </ul>
@@ -92,7 +78,7 @@
 <div class="wishlist-mask">
 		<div class="wishlist-popup">
 			<span class="popup-icon"><i class="fa fa-bullhorn" aria-hidden="true"></i></span>
-			<p class="wishlist-alert">"SRJ Product" was added to wishlist</p>
+			<p class="wishlist-alert">"Product" was added to wishlist</p>
 			<div class="wishlist-button">
 				<a href="#">Continue Shopping (<span class="wishlist-countdown">5</span>)</a>
 				<a href="#">Go To Shopping Cart</a>
@@ -111,3 +97,4 @@
 	<!-- End Preload -->
 	<div>
 	<a href="#" class="scroll-top dark"><i class="fa fa-angle-up"></i></a>
+	</div>

@@ -16,6 +16,8 @@
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('/assets/css/theme.css') }}" media="all"/>
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('/assets/css/responsive.css') }}" media="all"/>
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('/assets/css/browser.css') }}" media="all"/>
+    <link rel="stylesheet" type="text/css" href="{{ URL::asset('/assets/css/popup.css')}}" media="all"/>
+    
 
 <style type="text/css">
 	.error {

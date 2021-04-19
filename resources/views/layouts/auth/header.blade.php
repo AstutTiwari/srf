@@ -4,6 +4,11 @@
 				<div class="row">
 					<div class="col-md-6 col-sm-6 col-xs-12">
 						<div class="hot-news pull-left">
+						    	<div class="logo logo1 pull-left">
+							
+								<a href="index.html" class="product-thumb-link zoom-thumb"><img src="images/home/fashion/logo.png" alt=""></a>		
+								
+							</div>
 						
 						</div>
 					</div>
@@ -16,35 +21,16 @@
 								<div class="top-social-network">
 									<a href="#" class="title12 white inline-block round"><i class="fa fa-facebook"></i></a>
 									<a href="#" class="title12 white inline-block round"><i class="fa fa-twitter"></i></a>
-									<a href="#" class="title12 white inline-block round"><i class="fa fa-pinterest-p"></i></a>
+									<a href="#" class="title12 white inline-block round"><i class="fa fa-instagram"></i></a>
 								</div>
 							</li>
 							<li>
 								<a href="#" class="title12 white link-account"><i class="fa fa-user"></i><span class="title14">My Account</span></a>
 							</li>
 						</ul>
+						
 					</div>
-				</div>
-			</div>
-		</div>
-		<!-- End Top Header -->
-		<div class="header2 bg-dark">
-			<div class="main-header2">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-3 col-sm-12 col-xs-12">
-							<div class="logo logo1 pull-left">
-							
-								<a href="index.html" class="product-thumb-link zoom-thumb"><img src="images/home/fashion/logo.jpg" alt=""></a>		
-								
-							</div>
-							<!-- End logo -->
-						</div>
-						<div class="col-md-3 col-sm-4 col-xs-12">
-							<p class="desc free-order pull-right white">Get Exciting Offers <strong>Everyday!</strong></p>
-						</div>
-						<div class="col-md-6 col-sm-8 col-xs-12">
-							<form method="get" class="search-form form-round">
+					<form method="get" class="search-form form-round">
 								<div class="dropdown-box">
 									<a href="javascript:void(0)" class="dropdown-link">All Categories</a>
 									<ul class="list-none dropdown-list">
@@ -60,10 +46,12 @@
 									<input type="submit" value="">
 								</div>
 							</form>
-						</div>
-					</div>
 				</div>
 			</div>
+		</div>
+		<!-- End Top Header -->
+		<div class="header2 bg-dark">
+			
 			<!-- End Main Nav -->
 			<div class="header-nav2">
 				<div class="container">
@@ -280,9 +268,8 @@
 									</li>
 
 											
-											<li><a href="#">Checkout</a></li>
-											<li><a href="#">Member Login</a></li>
-											<li><a href="#">My Profile</a></li>
+											<li><a href="#">Gift Card</a></li>
+											
 										</ul>
 									
 									<!-- <li class="menu-item-has-children">

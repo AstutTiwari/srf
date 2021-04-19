@@ -1,32 +1,10 @@
 /*General*/
 /*----------------------------------
-Project: Frame 7uptheme
-Version: 1.1
-Last change: 10/27/2017
-Author:	7UP Theme
-Author URI: https://7uptheme.com/
-01.Home Business 1
-02.Home Business 2
-03.Home Business 3
-04.Home Business 4
-05.Home Business 5
-06.Home Business 6
-07.Home Shop 1
-08.Home Shop 2
-09.Home Shop 3
-10.Home Shop 4
-11.Home Flower
-12.Home Food
-13.Home Fashion
-14.Home Furniture
-15.Product Shop
-16.Product Detail
-17.Blog
-18.Pages
+
 -----------------------------------*/
 /* General */
 body {
-  color: #333;
+  color: #a52a2a;
   font-family: 'Open Sans', sans-serif;
   font-size: 14px;
   line-height: inherit;
@@ -146,7 +124,7 @@ input:hover {
   background: #fff;
 }
 .bg-dark {
-  background: #000;
+  background: #393633;
 }
 .title14,
 .title8,
@@ -278,6 +256,7 @@ input:hover {
 .list-none {
   list-style: none;
   margin: 0;
+  font-weight:700;
   padding: 0;
 }
 .list-inline-block {
@@ -4202,7 +4181,7 @@ a.dark {
 .block-footer2 .social-network-footer a {
   border: 1px solid #e5e5e5;
   margin: 0 3px;
-  color: #000;
+  color: #fff;
   line-height: 34px;
 }
 .block-footer2 .social-network-footer a:hover {
@@ -6519,14 +6498,16 @@ img.line-icon {
   opacity: 0;
 }
 .testimo-jewelry2 {
+  background: #fdf9f9;
   padding: 125px 0 60px;
   margin-bottom: 70px;
+  
 }
 .testimo-jewelry2 .title-box2 {
   margin-bottom: 50px;
 }
 .item-testimo2 {
-  max-width: 700px;
+  max-width: 900px;
   margin: auto;
 }
 .item-testimo2 .desc {
@@ -6543,8 +6524,9 @@ img.line-icon {
   top: 50px;
 }
 .list-service-footer {
-  background: rgba(0, 0, 0, 0.03);
+  background: #fdf9f9;
   padding: 25px 0;
+  margin: 10px 10px 0 0;
 }
 .list-service-footer .list-none {
   text-align: center;
