@@ -75,7 +75,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
     Route::post('/admin/cms/popular/list',[App\Http\Controllers\Admin\Cms\PopularproductController::class,'list'])->name('admin.popularproduct.list');
     
     Route::get('/admin/cms/product/popular/create',[App\Http\Controllers\Admin\Cms\PopularproductController::class,'createView'])->name('admin.popularproduct.create.view');
-    Route::post('/admin/cms/product/create/store',[App\Http\Controllers\Admin\Cms\PopularproductController::class,'createStore'])->name('admin.popularproduct.create.store');
+    Route::post('/admin/cms/product/popular/create/store',[App\Http\Controllers\Admin\Cms\PopularproductController::class,'createStore'])->name('admin.popularproduct.create.store');
 
     Route::get('/admin/cms/product/popular/update/{id}',[App\Http\Controllers\Admin\Cms\PopularproductController::class,'updateView'])->name('admin.popularproduct.update.view');
     Route::post('/admin/cms/product/popular/update/store',[App\Http\Controllers\Admin\Cms\PopularproductController::class,'updateStore'])->name('admin.popularproduct.update.store');

@@ -106,7 +106,8 @@ $(document).ready(function(e){
         l = Ladda.create( document.querySelector('#product-section .btn-submit') );
         l.start();
         $.ajax({
-           url: "{{route('admin.product.create.store')}}",
+            url: "{{route('admin.product.create.store')}}", 
+          
             method: "POST",
             dataType: 'json',
             data: $("#product-section").serialize(),

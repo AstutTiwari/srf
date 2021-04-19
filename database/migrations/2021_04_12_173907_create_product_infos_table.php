@@ -17,7 +17,7 @@ class CreateProductInfosTable extends Migration
             $table->id();
             $table->integer('product_id');
             $table->enum('rate',['1', '2','3','4','5'])->default('4');
-            $table->integer('metal_type')->nullable();
+            $table->string('metal_type')->nullable();
             $table->string('purity',50)->nullable();
             $table->string('seq_no',50)->nullable();
             $table->string('design_no',50)->nullable();

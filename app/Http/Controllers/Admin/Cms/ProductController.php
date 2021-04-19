@@ -68,6 +68,7 @@ class ProductController extends Controller
    }
    public function createView()
    {
+       
        $category = ProductBanner::where('status','1')->pluck('title','id')->toArray();
        return view('admin.cms.product.create',compact('category'));
    }
@@ -82,13 +83,13 @@ class ProductController extends Controller
           'title' => 'required|string',
            'sub_title' => 'required|string',
            'banner_image' => ['required',new ValidateIsimage()]
-      ];
-      $validator = Validator::make($attributes, $validateArray);
-      if ($validator->fails())
-      {
+        ];
+        $validator = Validator::make($attributes, $validateArray);
+        if ($validator->fails())
+        {
           return response()->json(["success" => false, 'type' => 'validation-error','error' => $validator->errors()]);
-      }
-      if(isset($attributes['banner_image']) && !empty($attributes['banner_image']))
+        }
+        if(isset($attributes['banner_image']) && !empty($attributes['banner_image']))
         {
             $file = $attributes['banner_image'];
             @list($type, $file) = explode(';', $file);
@@ -114,7 +115,7 @@ class ProductController extends Controller
             'status'=>isset($attributes['status'])?'1':'0',
             'parent_id'=>'0'
         ]);
-      return response()->json(["success" => true,'message'=>'Product has been created successfully!']);
+        return response()->json(["success" => true,'message'=>'Product has been created successfully!']);
     }
     return response()->json(['success' => false, "error" => 'Un authorised request']); 
    }
