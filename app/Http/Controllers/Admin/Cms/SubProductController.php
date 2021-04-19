@@ -243,6 +243,7 @@ class SubProductController extends Controller
               return response()->json(["success" => false, 'type' => 'validation-error','error' => $validator->errors()]);
           }
           $product = Product::find($request->product_id);
+          $main_product = Product::find($request->parent_id);
             if(!$product)
             {
                 return response()->json(['success' => false, "error" => 'Product does not exist']);
@@ -250,7 +251,7 @@ class SubProductController extends Controller
             
             $product_data = [
                 'slug'=>$attributes['slug'],
-                'category_id'=>$product->category_id,
+                'category_id'=>$main_product->category_id,
                 'title' => $attributes['title'],
                 'sub_title' => $attributes['sub_title'],
                 'status'=>isset($attributes['status'])?'1':'0',
