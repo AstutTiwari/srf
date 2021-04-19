@@ -1,33 +1,45 @@
 @extends('layouts.master')
 @section('custom-css')
 <link href="{{ URL::asset('css/leads.css') }}" rel="stylesheet" type="text/css" />
+<style>
+    .inquiry-wrapper{
+        border-bottom:1px solid #000;
+        margin-top:10px;
+    }
+    .inquiry-wrapper:first-child {
+        margin-top:0px;
+    }
+    #productTable.dataTable>tbody>tr.child ul.dtr-details>li{
+        word-break: break-word;
+        white-space: normal;
+    }
+</style>
 @endsection
-@section('meta_page_title','Accordian List | Tenantden')
+@section('meta_page_title','Product List | ShriRam')
 @section('content')
-<div class="container-fluid mt-3 manage-table-title">
-    <div class="row">
-        <div class="col-12">
-            <div class="page-title-box">
-                <a class="back-btn" href="{{ url()->previous() }}"><i class="mdi mdi-keyboard-backspace"></i>Back</a>
-                <h4 class="page-title">Accordian List</h4>
-            </div>
-        </div>
-    </div> 
+<div class="container-fluid mt-3">
     <div class="row"> 
     	<div class="col-12 leads-section">
             <div class="card leads-table-card">
                 <div class="card-body leads-table-body">
-                    <!-- <div class="section-title-top">
-                        <div class="title-left">                          
+                    <div class="section-title-top">
+                        <div class="title-left">
+                          <a class="back-btn" href="{{ url()->previous() }}"><i class="mdi mdi-keyboard-backspace"></i>Back</a>
+                          <h4 class="header-title">Product List</h4>
                         </div>
-                    </div> -->
-                    <table id="accordianTable" class="table dt-responsive nowrap w-100">
+                        <div class="title-right">
+                            <a href="{{route('admin.product.create.view')}}"  class="btn btn-top btn-primary test-btn btn-cancel mr-2"><i class="mdi mdi-plus-circle-outline mr-1"></i>Add A Product</a>
+                        </div>
+                    </div>
+                    <table id="productTable" class="table dt-responsive nowrap w-100">
                         <thead>
                             <tr>
+                                <th>Banner</th>
+                                <th>Name</th>
                                 <th>Title</th>
-                                <th>Text</th>
-                                <th>Order</th>
-                                <th>Updated At</th>
+                                <th>Sub Title</th>
+                                <th>Category</th>
+                                <th>Status</th>
                                 <th>Action</th> 
                             </tr>
                         </thead>                
@@ -46,7 +58,7 @@
   var l = false;
   var table_instance;  
   var initialized = false;
-	table_instance = $('#accordianTable').DataTable({
+	table_instance = $('#productTable').DataTable({
     "lengthChange": false,
     "language": {
         "paginate": {
@@ -69,8 +81,9 @@
     serverSide: true,
     retrieve: true,
     paging: false,
+    order: [], //Initial no order.
     ajax: {
-        url: "{{ route('admin.manage.accordian.list') }}",
+        url: "{{ route('admin.product.list') }}",
         method: 'POST',
         complete: function(res) {
           if(l) {
@@ -89,12 +102,14 @@
         }
     ],
     columns: [
-        {data: 'title', name: 'title'},
-        {data: 'text', name: 'text'},
-        {data: 'order', name: 'order'},
-        {data: 'updated_at', name: 'updated_at'},
+        {data:'image',name:'image'},
+        {data: 'name', name: 'name'},
+        {data:'title',name:'title'},
+        {data:'sub_title',name:'sub_title'},
+        {data: 'category', name: 'category'},
+        {data: 'status', name: 'status'},
 		{data: 'action', name: 'action', "searchable": false, "orderable": false, width: '50px', className : "text-center"}
-    ]
+      ]
 });
 </script>  
 @endsection
