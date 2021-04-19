@@ -139,7 +139,7 @@ class SubProductController extends Controller
         $category = Product::find($attributes['parent_id']);
         $product = Product::create([
             'slug'=>$attributes['slug'],
-            'category_id'=>$category->id,
+            'category_id'=>$category->category_id,
             'title' => $attributes['title'],
             'sub_title' => $attributes['sub_title'],
             'banner_name'=>$unique_name,
