@@ -5,11 +5,6 @@ namespace App\Http\Controllers\Admin\Cms;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-use App\Models\PopularProduct;
-use App\Models\ProductInfo;
-use App\Models\Shape;
-use App\Models\Metal;
-use App\Models\Colors;
 use App\Models\ProductBanner;
 
 use App\Rules\ValidateIsimage; 
@@ -23,6 +18,7 @@ class PopularproductController extends Controller
 {
     public function index()
     {
+
         return view('admin.cms.popular_product.index');
     }
    

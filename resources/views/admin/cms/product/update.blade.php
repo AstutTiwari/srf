@@ -34,7 +34,7 @@
 		                                </div>
                                         <div class="mb-3 col-md-6">
 		                                    <label class="col-form-label" for="category_id">Category<span class="required">*</span></label>
-									    	{!! Form::select('category_id',$category,$product->id,['class'=>'form-control selectpicker required','id'=>'category_id']) !!}
+									    	{!! Form::select('category_id',$category,$product->category_id,['class'=>'form-control selectpicker required','id'=>'category_id']) !!}
 									    	<label for="category_id" id="category_id-error" generated="true" class="is-invalid" style="display:none"></label>
 		                                </div>
                                         <div class="mb-3 col-md-6">
