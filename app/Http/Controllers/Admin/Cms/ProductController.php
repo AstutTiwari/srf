@@ -27,7 +27,7 @@ class ProductController extends Controller
     }
     public function list(Request $request)
    {    
-        $query = Product::where('id','!=','0');
+        $query = Product::where('parent_id','0');
         return DataTables::of($query)
         ->addColumn('image',function($query){
             if(!empty($query->banner_path))
