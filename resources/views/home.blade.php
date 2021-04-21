@@ -5,119 +5,105 @@
 <section id="content" >
 		<div class="banner-slider banner-jewelry2 bg-slider parallax-slider">
 			<div class="wrap-item" data-navigation="true" data-transition="fade" data-itemscustom="[[0,1]]">
+				@foreach($banners as $banner)
+					@if($banner->url)         
+				      @php
+				        $image = 'storage/'.$banner->url;
+				      @endphp        
+				    @endif
 				<div class="item-slider item-slider2">
 					<div class="banner-thumb">
-						<a href="#"><img src="images/home/jewelry2/slide1.jpg" alt="" /></a>
+						<a href="#"><img src="{{ URL::asset($image)}}" alt="{{$banner->name}}" /></a>
 					</div>
 					<div class="banner-info animated text-center" data-animated="zoomIn">
-						<h2 class="title48 play-font font-normal text-uppercase white">Celebrate<strong>45%</strong> off</h2>
-						<h3 class="title18 play-font font-italic white">Beauty of bonds in your relationship.</h3>
+						<h2 class="title48 play-font font-normal text-uppercase white">{{$banner->title}}</h2>
+						<h3 class="title18 play-font font-italic white">{{$banner->sub_title}}</h3>
 						<a href="#" class="border-button white title18">Shop now</a>
 					</div>
 				</div>
-				<div class="item-slider item-slider2">
-					<div class="banner-thumb">
-						<a href="#"><img src="images/home/jewelry2/slide2.jpg" alt="" /></a>
-					</div>
-					<div class="banner-info animated text-center" data-animated="bounceIn">
-						<h2 class="title48 play-font font-normal text-uppercase white">Jewelry collection</h2>
-						<h3 class="title18 play-font font-italic white">This unique jewelry is handcrafted on the beautiful island of Nantucket using fine silver and semi precious stones.</h3>
-						<a href="#" class="border-button white title18">Shop now</a>
-					</div>
-				</div>
-				<div class="item-slider item-slider2">
-					<div class="banner-thumb">
-						<a href="#"><img src="images/home/jewelry2/slide3.jpg" alt="" /></a>
-					</div>
-					<div class="banner-info animated text-center" data-animated="tada">
-						<h2 class="title48 play-font font-normal text-uppercase dark">Master</h2>
-						<h3 class="title18 play-font font-italic dark"><strong>the art of</strong><br>Gifting</h3>
-						<a href="#" class="border-button dark title18">Shop now</a>
-					</div>
-				</div>
+				@endforeach
 			</div>
 		</div>
 
 		<!-- End Banner Slider -->
     <div class="container">
-        
-        	
-
-	
-		<div class="list-banner-jewelry2">
+        <div class="list-banner-jewelry2">
+		@if($product_banners['4']['slug']=="pendants")
 			<div class="row">
 				<div class="col-sm-6 col-xs-12">
 					<div class="banner-adv zoom-image line-scale item-adv-jewelry2 style1">
-							<a href="#" class="adv-thumb-link"><img src="images/home/jewelry2/ads1.jpg" alt="" /></a>
+						<a href="#" class="adv-thumb-link"><img src="images/home/jewelry2/ads1.jpg" alt="" /></a>
 						<div class="banner-info">
-								<h3 class="title60 play-font white text-uppercase">Pendants</h3>
-								
-								
-								<hr class="white" />
-								<a href="#" class="link-arrow white wobble-horizontal">Shop now</a>
+							<h3 class="title60 play-font white text-uppercase">Pendants</h3>
+							<hr class="white" />
+							<a href="#" class="link-arrow white wobble-horizontal">Shop now</a>
 						</div>
 					</div>
-						
-					 <div class="banner-adv item-adv-jewelry2 zoom-image line-scale style1">
-							<a href="#" class="adv-thumb-link"><img src="images/home/jewelry2/ads2.jpg" alt="" /></a>
-							<div class="banner-info">
-								<h3 class="title60 play-font white text-uppercase">Earings</h3>
-								
-								<hr class="white" />
-								<a href="#" class="link-arrow white wobble-horizontal">Shop now</a>
-							</div>
+					@endif
+					@if($product_banners['1']['slug']=="earing")
+					<div class="banner-adv item-adv-jewelry2 zoom-image line-scale style1">
+						<a href="#" class="adv-thumb-link"><img src="images/home/jewelry2/ads2.jpg" alt="" /></a>
+						<div class="banner-info">
+							<h3 class="title60 play-font white text-uppercase">Earings</h3>
+							<hr class="white" />
+							<a href="#" class="link-arrow white wobble-horizontal">Shop now</a>
+						</div>
 					</div>
 				</div>
-				
+				@endif
+				@if($product_banners['5']['slug']=="rings")
 				<div class="col-sm-6 col-xs-12">
 					<div class="banner-adv item-adv-jewelry2 zoom-image line-scale style1">
 							<a href="#" class="adv-thumb-link"><img src="images/home/glass/adv1.jpg" alt="" /></a>
 						<div class="banner-info">
-								<h3 class="title60 play-font white text-uppercase">Rings</h3>
-								
-								<a href="#" class="link-arrow white wobble-horizontal">Shop now</a>
+							<h3 class="title60 play-font white text-uppercase">Rings</h3>
+							<a href="#" class="link-arrow white wobble-horizontal">Shop now</a>
 						</div>
 					</div>
-				</div>
-				
-				
-			</div>
-					<div class="row">
-				    	<div class="col-sm-6 col-xs-12">
-						<div class="banner-adv item-adv-jewelry2 zoom-image line-scale style1">
-							<a href="#" class="adv-thumb-link"><img src="images/home/jewelry2/ads3.jpg" alt="" /></a>
-							<div class="banner-info">
-								<h3 class="title30 white play-font text-uppercase">Jwellery Customisation</h3>
-								<h4 class="title18 play-font font-italic white">Design Engineering</h4>
-								<p class="desc white">Bringing forward a collection with an aesthetic appeal for a broad market while ensuring exceptional results is a challenge for any organization. Riva Precision provides a systematic approach to creating timeless designs that are consistently reproduced through the company’s in-house capabilities.</p>
-								<a href="#" class="link-arrow white wobble-horizontal">Shop now</a>
-							</div>
-						</div>
-					</div>
-					<div class="col-sm-6 col-xs-12">
-						<div class="banner-adv zoom-image line-scale item-adv-jewelry2 style1">
-							<a href="#" class="adv-thumb-link"><img src="images/home/jewelry2/ads11.jpg" alt="" /></a>
-							<div class="banner-info">
-								
-								<h3 class="title60 play-font white text-uppercase">NosePins</h3>
-								
-								<hr class="white" />
-								<a href="#" class="link-arrow white wobble-horizontal">Shop now</a>
-							</div>
-						</div>
-						<div class="banner-adv item-adv-jewelry2 zoom-image line-scale style1">
-							<a href="#" class="adv-thumb-link"><img src="images/home/jewelry2/ads21.jpg" alt="" /></a>
-							<div class="banner-info">
-								<h3 class="title60 play-font white text-uppercase">Bangles</h3>
-								<h4 class="title18 play-font font-italic white opaci">Diamonds & Gold</h4>
-								<hr class="white" />
-								<a href="#" class="link-arrow white wobble-horizontal">Shop now</a>
-							</div>
-						</div>
-					</div>
-				</div>
 				</div>
 			</div>
+			@endif
+			@if($product_banners['2']['slug']=="jwekkery_customizaion")
+			<div class="row">
+				<div class="col-sm-6 col-xs-12">
+					<div class="banner-adv item-adv-jewelry2 zoom-image line-scale style1">
+						<a href="#" class="adv-thumb-link"><img src="images/home/jewelry2/ads3.jpg" alt="" /></a>
+						<div class="banner-info">
+							<h3 class="title30 white play-font text-uppercase">Jwellery Customisation</h3>
+							<h4 class="title18 play-font font-italic white">Design Engineering</h4>
+							<p class="desc white">Bringing forward a collection with an aesthetic appeal for a broad market while ensuring exceptional results is a challenge for any organization. Riva Precision provides a systematic approach to creating timeless designs that are consistently reproduced through the company’s in-house capabilities.</p>
+							<a href="#" class="link-arrow white wobble-horizontal">Shop now</a>
+						</div>
+					</div>
+				</div>
+				@endif
+				@if($product_banners['3']['slug']=="nospeins")
+				<div class="col-sm-6 col-xs-12">
+					<div class="banner-adv zoom-image line-scale item-adv-jewelry2 style1">
+						<a href="#" class="adv-thumb-link"><img src="images/home/jewelry2/ads11.jpg" alt="" /></a>
+						<div class="banner-info">
+							<h3 class="title60 play-font white text-uppercase">NosePins</h3>
+							<hr class="white" />
+							<a href="#" class="link-arrow white wobble-horizontal">Shop now</a>
+						</div>
+					</div>
+					@endif
+					@if($product_banners['0']['slug']=="bangles")
+					<div class="banner-adv item-adv-jewelry2 zoom-image line-scale style1">
+						<a href="#" class="adv-thumb-link"><img src="images/home/jewelry2/ads21.jpg" alt="" /></a>
+						<div class="banner-info">
+							<h3 class="title60 play-font white text-uppercase">Bangles</h3>
+							<h4 class="title18 play-font font-italic white opaci">Diamonds & Gold</h4>
+							<hr class="white" />
+							<a href="#" class="link-arrow white wobble-horizontal">Shop now</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			@endif
+			
+		</div>
+	</div>
 			
 			<!-- End Adv -->
 		

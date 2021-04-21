@@ -73,8 +73,8 @@ class ProductbannerController extends Controller
             $attributes = $request->all();
             $validateArray = [
                 'banner_id' => 'required',
-                'slug' => 'required|unique:product_banners,slug,'.$attributes['banner_id'],
-                'order' =>'required',
+                // 'slug' => 'required|unique:product_banners,slug,'.$attributes['banner_id'],
+                // 'order' =>'required',
                 'title' => 'required|string',
                 'sub_title' => 'required|string',
                 'image' => ['nullable',new ValidateIsimage()]
@@ -91,8 +91,8 @@ class ProductbannerController extends Controller
             }
             $previous_order = $banner->order;
             $banner_data = [
-                'slug' => $attributes['slug'],
-               'order' => $attributes['order'], 
+               // 'slug' => $attributes['slug'],
+               //'order' => $attributes['order'], 
                'title' => $attributes['title'],
                'sub_title' => $attributes['sub_title'],
                'status' => isset($attributes['status'])?'1':'0', 
@@ -118,11 +118,11 @@ class ProductbannerController extends Controller
             }
             $banner->update($banner_data);
             
-            $upate_banner = ProductBanner::where('id','!=',$request->banner_id)->where('order',$attributes['order'])->first();
-            if(!empty($upate_banner))
-            {
-               $upate_banner->update(['order'=>$previous_order]);
-            }
+            // $upate_banner = ProductBanner::where('id','!=',$request->banner_id)->where('order',$attributes['order'])->first();
+            // if(!empty($upate_banner))
+            // {
+            //    $upate_banner->update(['order'=>$previous_order]);
+            // }
             Cache::forget('product_banners');
             Cache::rememberForever('product_banners', function (){
                 return ProductBanner::where('status','1')->orderBy('order')->get();

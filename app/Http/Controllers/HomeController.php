@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+
+use App\Models\Banner;
+use App\Models\ProductBanner;
+
 use Illuminate\Http\Request;
+
 
 class HomeController extends Controller
 {
@@ -11,10 +16,7 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    
 
     /**
      * Show the application dashboard.
@@ -23,6 +25,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $banners = Banner::where('status','1')->get();
+        $product_banners = ProductBanner::where('status','1')->get()->toArray();
+        
+
+        return view('home',compact('banners','product_banners'));
     }
 }

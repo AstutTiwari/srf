@@ -332,7 +332,7 @@ if(!function_exists('getStatus'))
         }
         else
         {
-            $class = "badge bg-soft-danger text-danger p-1";
+            $class = "badge bg-soft-danger text-danger p-1"; 
             $text = "Inactive";
         }
         return $html = '<span class="' . $class . '">' . $text . '</span>';
@@ -384,69 +384,6 @@ if (!function_exists('leaseStatus')) {
         return $status;
     }
     
-}
-if (!function_exists('getAdminSetting'))
-{
-    function getAdminSetting($type=null)
-    {
-        $setting = Cache::get('setting_key');
-        if($type=='applicant_fee')
-        {
-            if(!Cache::has('setting_key'))
-            {
-                $setting = \App\AdminSetting::latest()->first()->toArray();
-                Cache::rememberForever('setting_key', function () use ($setting){
-                    return $setting;
-                });
-            }
-            return $setting['applicant_fee'];
-        }
-        else if($type=='rental_fee')
-        {
-            if(!Cache::has('setting_key'))
-            {
-                $setting = \App\AdminSetting::latest()->first()->toArray();
-                Cache::rememberForever('setting_key', function () use ($setting){
-                    return $setting;
-                });
-            }
-            return $setting['rental_fee'];
-        }
-        else if($type=='application_fee')
-        {
-            if(!Cache::has('setting_key'))
-            {
-                $setting = \App\AdminSetting::latest()->first()->toArray();
-                Cache::rememberForever('setting_key', function () use ($setting){
-                    return $setting;
-                });
-            }
-            return $setting['application_fee'];
-        }
-        else if($type=='trail_period')
-        {
-            if(!Cache::has('setting_key'))
-            {
-                $setting = \App\AdminSetting::latest()->first()->toArray();
-                Cache::rememberForever('setting_key', function () use ($setting){
-                    return $setting;
-                });
-            }
-            return $setting['trail_period'];
-        }
-        else if($type == 'supplier_fee')
-        {
-            if(!Cache::has('supplier_fee'))
-            {
-                $setting = \App\AdminSetting::latest()->first()->toArray();
-                Cache::rememberForever('setting_key', function () use ($setting){
-                    return $setting;
-                });
-            }
-            return $setting['supplier_fee'];
-        }
-    }
-
 }
 if (!function_exists('getStatus'))
 {
@@ -718,7 +655,7 @@ if(!function_exists('getHomePageCache'))
     {
         if($type=='banners')
         {
-            $banners = Cache::get('banners');
+            $banners = Cache::get('banners'); 
             if(!Cache::has('banners'))
             {
                 $banners = \App\Banner::where('status','1')->orderBy('order')->get();

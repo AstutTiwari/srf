@@ -37,7 +37,7 @@
 											{!! Form::textarea('sub_title',@$banner->sub_title,['class'=>'form-control required','id'=>'sub_title', 'rows' => 10, 'cols' => 30]) !!}
 											<label for="sub_title" id="sub_title-error" generated="true" class="is-invalid" style="display:none"></label>
 		                                </div>
-		                                <div class="mb-3 col-md-6">
+		                                {{--<div class="mb-3 col-md-6">
 		                                    <label class="col-form-label" for="slug">Banner Slug<span class="required">*</span></label>
 											<button type="button" class="image-guide btn btn-light" data-toggle="tooltip" data-placement="top" title="" data-original-title="Product banner slug should be unique"><i class="mdi mdi-information-outline"></i></button>
                                             {!! Form::text('slug',@$banner->slug,['class'=>'form-control required','id'=>'slug']) !!}
@@ -47,7 +47,7 @@
 		                                    <label class="col-form-label" for="order">Banner Order<span class="required">*</span></label>
 		                                    	{!! Form::select('order', ['1'=>'First','2'=>'Second','3'=>'Third','4'=>'Fourth','5'=>'Fifth','6'=>'Sixth'], @$banner->order, ['id'=>'order', 'class' => 'form-control selectpicker',  'title' => 'Select Product Banner Order']); !!}
 		                                    <label for="order" id="order-error" generated="true" class="is-invalid" style="display:none"></label>
-                                        </div>
+                                        </div>--}}
 		                                <div class="form-group banner-change mb-3 col-md-6">
                                         	<label class="col-form-label" for="images">Upload Banner<span class="required">*</span></label>
                                         	<button type="button" class="image-guide btn btn-light" data-toggle="tooltip" data-placement="top" title="" data-original-title="The Image ratio should be 2.327(W)*1(H) for better preview!"><i class="mdi mdi-information-outline"></i></button>

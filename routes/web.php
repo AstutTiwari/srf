@@ -14,13 +14,11 @@ use App\Http\Controllers\Admin\Cms\SubProductController;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home.index');
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home.index');
+
 
  Route::group(['middleware' => 'admin'], function () {
     Route::get('/admin/dashboard', [App\Http\Controllers\Admin\DashboardController::class,'index'])->name('admin.dashboard');
