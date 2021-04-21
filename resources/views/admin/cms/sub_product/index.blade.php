@@ -80,7 +80,7 @@
     processing: true,
     serverSide: true,
     retrieve: true,
-    paging: false,
+    paging: true,
     order: [], //Initial no order.
     ajax: {
         url: "{{ route('admin.subproduct.list') }}",
