@@ -22,40 +22,16 @@
                             </div>
                             <h2 class="title18 play-font  white text-center text-uppercase font-bold">FOLLOW US ON</h2>
                             <div class="social-network-footer text-center">
-                                <a href="#" class="title12 white inline-block round"><i class="fa fa-facebook"></i></a>
-                                <a href="#" class="title12 white inline-block round"><i class="fa fa-twitter"></i></a>
-                                <a href="#" class="inline-block round"><i class="fa fa-instagram"></i></a>
+                            @foreach($socials as $social)
+                                <a href="{{$social->redirect_url}}" target="_blank" class="title12 white inline-block round"><i class="{{$social->icon_name}}"></i></a>
+                            @endforeach
                             </div>
                         </div>
                     </div>
                     <div class="col-md-4 col-sm-4 col-xs-12">
                         <div class="block-footer2">
-                            <h2 class="title18 play-font white text-uppercase font-bold">Contact Us</h2>
-                            <p class="desc white opaci">Don't hesitate in contacting us for any questions you might have.</p>
-                            <ul class="list-none contact-foter2">
-                                <li>
-                                    <i class="fa fa-location-arrow white"></i>
-                                    <span class="text-uppercase white opaci">Sadar Bajar, Gurgaon, Haryana 122001</span>
-                                </li>
-                            
-                                <li>
-                                    <i class="fa fa-volume-control-phone white"></i>
-                                    <span class="text-uppercase white opaci">+91-9811369903 <br>  0124-233257</span>
-                                </li>
-                                <li>
-                                    <i class="fa fa-location-arrow white"></i>
-                                    <span class="text-uppercase white opaci">Near Gurudwara Road Showroom, Gurgaon, Haryana 122001</span>
-                                </li>
-                            
-                                <li>
-                                    <i class="fa fa-volume-control-phone white"></i>
-                                    <span class="text-uppercase white opaci">+91-9773556210;+91-9910590048 <br>  +91-124-4066570;+91-124-4077570</span>
-                                </li>
-                                <li>
-                                    <i class="fa fa-envelope white"></i>
-                                    <a class="white opaci" href="mailto:demo@example.com">shriram@shriramjewellers.in</a>
-                                </li>
-                            </ul>
+                            <!-- contact section -->
+                            {!! $contact->text !!}
                         </div>
                     </div>
                 </div>

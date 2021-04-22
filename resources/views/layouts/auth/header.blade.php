@@ -15,13 +15,13 @@
 					<div class="col-md-6 col-sm-6 col-xs-12">
 						<ul class="top-total-info list-inline-block pull-right">
 							<li>
-								<p class="desc white call-phone title12"><i class="fa fa-volume-control-phone"></i><span class="title14">Call: +91 9910590048</span></p>
+								<p class="desc white call-phone title12"><i class="fa fa-volume-control-phone"></i><span class="title14">Call: {{$contact->contact_number}}</span></p>
 							</li>
 							<li>
 								<div class="top-social-network">
-									<a href="#" class="title12 white inline-block round"><i class="fa fa-facebook"></i></a>
-									<a href="#" class="title12 white inline-block round"><i class="fa fa-twitter"></i></a>
-									<a href="#" class="title12 white inline-block round"><i class="fa fa-instagram"></i></a>
+								@foreach($socials as $social)
+                                	<a href="{{$social->redirect_url}}" target="_blank" class="title12 white inline-block round"><i class="{{$social->icon_name}}"></i></a>
+                            	@endforeach
 								</div>
 							</li>
 							<li>

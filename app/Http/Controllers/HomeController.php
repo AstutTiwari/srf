@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Banner;
 use App\Models\ProductBanner;
+use App\Models\Product;
+use App\Models\PopularProduct;
+use App\Models\AdminContactus;
+use App\Models\Social;
 
 use Illuminate\Http\Request;
 
@@ -27,8 +31,10 @@ class HomeController extends Controller
     {
         $banners = Banner::where('status','1')->get();
         $product_banners = ProductBanner::where('status','1')->get()->toArray();
-        
-
-        return view('home',compact('banners','product_banners'));
+        $products = Product::where('parent_id','!=','0')->where('status','1')->orderBy('id', 'desc')->take(8)->get();
+        $popular_products = PopularProduct::orderBy('id', 'desc')->where('status','1')->take(3)->get();
+        $contact = AdminContactus::find('1');
+        $socials = Social::where('status','1')->get();
+        return view('home',compact('banners','product_banners','products','popular_products','contact','socials'));
     }
 }

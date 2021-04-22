@@ -18,7 +18,7 @@ class SocialTableSeeder extends Seeder
           0=>[
             'id' => 1,
             'name' => 'Facebook',
-            'icon_name' => 'fab fa-facebook-f' ,
+            'icon_name' => 'fa fa-facebook-f' ,
             'redirect_url' => '',
             'order' => '1',
             'status' => '1',
@@ -26,7 +26,7 @@ class SocialTableSeeder extends Seeder
           1=>[
             'id' => 2,
             'name' => 'Linkdin',
-            'icon_name' => 'fab fa-linkedin-in' ,
+            'icon_name' => 'fa fa-linkedin-in' ,
             'redirect_url' => '',
             'order' => '2',
             'status' => '1',
@@ -34,19 +34,12 @@ class SocialTableSeeder extends Seeder
           2=>[
             'id' => 3,
             'name' => 'Twitter',
-            'icon_name' => 'fab fa-twitter' ,
+            'icon_name' => 'fa fa-twitter' ,
             'redirect_url' => '',
             'order' => '3',
             'status' => '1',
           ],
-          3=>[
-            'id' => 4,
-            'name' => 'Behance',
-            'icon_name' => 'fab fa-behance' ,
-            'redirect_url' => '',
-            'order' => '4',
-            'status' => '1',
-          ],
+          
             
         ]);
       }
