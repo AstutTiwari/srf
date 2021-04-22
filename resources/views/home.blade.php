@@ -155,7 +155,7 @@
 							<div class="product-slider">
 								<div class="wrap-item hide-navi" data-pagination="false" data-navigation="true" data-itemscustom="[[0,1],[560,2],[768,3],[990,4]]">
 								@foreach($products as $product)
-									@if($product->url)         
+									@if($product->banner_path)         
 									@php
 										$image = 'storage/'.$product->banner_path;
 									@endphp        
@@ -250,7 +250,7 @@
 				<div class="product-slider">
 					<div class="wrap-item hide-navi" data-pagination="false" data-autoplay="true" data-itemscustom="[[0,1],[560,2],[768,3],[990,4]]">
 					@foreach($products as $product)
-						@if($product->url)         
+						@if($product->banner_path)         
 						@php
 							$image = 'storage/'.$product->banner_path;
 						@endphp        
@@ -307,7 +307,7 @@
 				<div class="list-cat2">
 					<div class="row">
 					@foreach($popular_products as $pp)
-					@if($pp->url)         
+					@if($pp->banner_path)         
 					@php
 						$image = 'storage/'.$pp->banner_path;
 					@endphp        
