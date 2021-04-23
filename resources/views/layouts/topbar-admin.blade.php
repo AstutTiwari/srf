@@ -37,6 +37,7 @@
                             <a href="{{route('admin.product')}}" class="dropdown-item">Product</a>
                             <a href="{{route('admin.subproduct')}}" class="dropdown-item">Sub Product</a>
                             <a href="{{route('admin.popularproduct')}}" class="dropdown-item">Popular Product</a>
+                            <a href="{{route('admin.category')}}" class="dropdown-item">Category</a>
                             <a href="#" class="dropdown-item">Terms of Service</a>
                             <a href="#" class="dropdown-item">Privacy Policy</a>
                             {{--<a href="{{route('admin.expense')}}" class="dropdown-item">Expense</a>--}}

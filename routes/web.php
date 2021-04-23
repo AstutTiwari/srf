@@ -78,6 +78,16 @@ Auth::routes();
 
     Route::get('/admin/cms/product/popular/update/{id}',[App\Http\Controllers\Admin\Cms\PopularproductController::class,'updateView'])->name('admin.popularproduct.update.view');
     Route::post('/admin/cms/product/popular/update/store',[App\Http\Controllers\Admin\Cms\PopularproductController::class,'updateStore'])->name('admin.popularproduct.update.store');
+
+    
+    Route::get('/admin/cms/category',[App\Http\Controllers\Admin\Cms\CategoryController::class,'index'])->name('admin.category');
+    // Route::post('/cms/banner/update','Cms\BannerController@uploadImage')->name('admin.banner.uploadImage');
+    Route::post('/admin/cms/category/list',[App\Http\Controllers\Admin\Cms\CategoryController::class,'list'])->name('admin.category.list');
+    Route::get('/admin/cms/category/create',[App\Http\Controllers\Admin\Cms\CategoryController::class,'create'])->name('admin.category.create');
+    Route::post('/admin/cms/category/create/store',[App\Http\Controllers\Admin\Cms\CategoryController::class,'createStore'])->name('admin.category.create.store');
+
+    Route::get('/admin/cms/category/update/{id}',[App\Http\Controllers\Admin\Cms\CategoryController::class,'update'])->name('admin.category.update');
+    Route::post('/admin/cms/category/update/store',[App\Http\Controllers\Admin\Cms\CategoryController::class,'updateStore'])->name('admin.category.update.store');
 });
 
 
