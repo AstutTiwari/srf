@@ -12,6 +12,8 @@ class Category extends Model
     protected $fillable = [
         'id',
         'name',
+        'banner_path',
+        'banner_name',
         'slug',
         'status'
     ];

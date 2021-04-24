@@ -9,6 +9,8 @@ use Carbon\Carbon;
 
 use Cache;
 
+use App\Rules\ValidateIsimage; 
+
 use App\Models\Category;
 
 use Yajra\Datatables\Datatables;
@@ -26,7 +28,18 @@ class CategoryController extends Controller
    public function list(Request $request)
    {    
        $query = Category::where('status','1');
-        return DataTables::of($query) 
+        return DataTables::of($query)
+        ->addColumn('image',function($query){
+            if(!empty($query->banner_path))
+            {
+                $url= asset('storage/'.$query->banner_path);
+            }
+            else{
+                $url = $query->banner_path;
+            }
+            $str = '<img src="'.$url.'" alt="image" class="img-fluid img-thumbnail" width="200">';
+            return $str;
+        }) 
         ->addColumn('name',function($query){
             return $query->name;
         })
@@ -44,7 +57,7 @@ class CategoryController extends Controller
             </div></div>';
             return $str;
           })
-        ->rawColumns(['name','status','slug','action'])
+        ->rawColumns(['name','image','status','slug','action'])
         ->make(true);
    }
    public function update(Request $request,$id)
@@ -60,13 +73,15 @@ class CategoryController extends Controller
 
    public function updateStore(Request $request)
    {
+    
       if($request->ajax())
       {
           $attributes = $request->all();
           $validateArray = [
             'category_id'=>'required',
             'name' => 'required',
-            'slug' => 'required|unique:categories,slug',$attributes['category_id'],
+            'slug' => 'required|unique:categories,id',$attributes['category_id'],
+            'banner_image' => ['nullable',new ValidateIsimage()],
             'status' => 'required',
         ];
         $validator = Validator::make($attributes, $validateArray);
@@ -84,6 +99,33 @@ class CategoryController extends Controller
            'slug' => $attributes['slug'],
            'status' => isset($attributes['status'])?'1':'0',
         ];
+        if(isset($attributes['banner_image']) && !empty($attributes['banner_image']))
+        {
+           $validateArray = [
+                'banner_image' => ['required',new ValidateIsimage()],
+            ];
+            $validator = Validator::make($attributes, $validateArray);
+            if ($validator->fails())
+            {
+                return response()->json(["success" => false,'type' => 'validation-error','error' => $validator->errors()]);
+            }
+            $file = $attributes['banner_image'];
+            @list($type, $file) = explode(';', $file);
+            @list(, $file) = explode(',', $file);
+            @list(, $extension) = explode('/', $type);
+            $unique_name = rand().'.'. $extension;
+            $filePath = 'category/'. $unique_name;
+            Storage::disk('public')->put($filePath, base64_decode($file));
+            if($category->banner_path)
+            {
+                Storage::disk('public')->delete($product->banner_path);
+            }
+            $image_data = [
+                'banner_name' => $unique_name,
+                'banner_path' => $filePath,
+            ];
+            $category_data = array_merge($category_data,$image_data);
+        }
         $category->update($category_data);
         return response()->json(["success" => true,'message'=>'Category has been updated successfully!']);
       }
@@ -101,6 +143,7 @@ class CategoryController extends Controller
           $validateArray = [
             'name' => 'required',
             'slug' => 'required|unique:categories,slug',
+            'banner_image' => ['required',new ValidateIsimage()],
             'status' => 'required',
         ];
         $validator = Validator::make($attributes, $validateArray);
@@ -108,9 +151,27 @@ class CategoryController extends Controller
         {
             return response()->json(["success" => false, 'type' => 'validation-error','error' => $validator->errors()]);
         }
+        if(isset($attributes['banner_image']) && !empty($attributes['banner_image']))
+        {
+            $file = $attributes['banner_image'];
+            @list($type, $file) = explode(';', $file);
+            @list(, $file) = explode(',', $file);
+            @list(, $extension) = explode('/', $type);
+            $unique_name = rand().'.'. $extension;
+            $filePath = 'product/'. $unique_name;
+            Storage::disk('public')->put($filePath, base64_decode($file));
+            // if($banner->banner_path)
+            // {
+            //     Storage::disk('public')->delete($banner->banner_path);
+            // }
+            
+            //$banner_data = array_merge($banner_data,$image_data);
+        }
         $category = Category::create([
                 'name' => $attributes['name'],
                 'slug' => $attributes['slug'],
+                'banner_name'=>$unique_name,
+                'banner_path'=>$filePath,
                 'status' => isset($attributes['status'])?'1':'0',
             ]);
         return response()->json(["success" => true,'message'=>'Category has been updated successfully!']);

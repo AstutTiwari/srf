@@ -1,5 +1,8 @@
 
 @extends('layouts.master')
+@section('plugin-css')
+<link href="{{ URL::asset('assets/libs/jquery-fancy-file-uploader/fancy-file-uploader/fancy_fileupload.css') }}" rel="stylesheet" type="text/css" />
+@endsection
 @section('custom-css')
 <link href="{{ URL::asset('css/settings.css') }}" rel="stylesheet" type="text/css" />
 <link href="{{ URL::asset('/css/home.css') }}" rel="stylesheet" type="text/css" />
@@ -26,6 +29,7 @@
 		                        	<div class="row no-margin">
                                         <div class="mb-3 col-md-6">
 		                                    <label class="col-form-label" for="name">Name<span class="required">*</span></label>
+                                            <input type="hidden" name="banner_image" id="banner_image">
                                             <input type="hidden" name="category_id" value="{{$category->id}}" id="category_id">
                                             <input type="text" name="name" class="form-control" id="name" value="{{@$category->name}}"/>
 											<label for="name" id="name-error" generated="true" class="is-invalid" style="display:none"></label>
@@ -35,6 +39,30 @@
 											<input type="text" name="slug" class="form-control" id="slug" value="{{@$category->slug}}"/>
 											<label for="slug" id="slug-error" generated="true" class="is-invalid" style="display:none"></label>
 		                                </div>
+                                        <div class="form-group banner-change mb-3 col-md-6">
+                                        	<label class="col-form-label" for="banner">Upload Banner<span class="required">*</span></label>
+                                        	<button type="button" class="image-guide btn btn-light" data-toggle="tooltip" data-placement="top" title="" data-original-title="The Image ratio should be 2.327(W)*1(H) for better preview!"><i class="mdi mdi-information-outline"></i></button>
+                                        	<input id="banner" class="" type="file" name="banner" accept=".jpg, .png, image/jpeg, image/png">
+                                        	<label for="banner" id="banner-error" generated="true"class="is-invalid" style="display:none"></label>
+                                            <ul class="warning-listing">
+                                                <p><strong>Note:</strong></p>
+                                                <li><i class="fa fa-check" aria-hidden="true"></i>The Image ratio should be <strong>1650(W)*709(H)</strong> for better preview(1366*587)!!</li>
+                                                <li><i class="fa fa-check" aria-hidden="true"></i>The Image extension should be <strong>png,jpg,jpeg and less than 5 MB!!</strong></li>
+                                            </ul>
+                                        </div>
+                                        <div class="form-group mt-4 col-md-6 upload_banner {{@$category->banner_path?'':'d-none'}}">
+											@if(@$category->banner_path)         
+            								    @php
+            								        $image = 'storage/'.@$category->banner_path;
+            								    @endphp        
+            								@endif
+                                            <ul class="single-upload" id="upload_banner">
+            									<li class="image-single">
+            										<img src="{{ URL::asset(@$image)}}" id="uploaded_image" name="image_ids" alt="image" class="img-fluid img-thumbnail">
+													<label for="image" id="image-error" generated="true"class="is-invalid" style="display:none"></label>
+												</li>
+											</ul>
+                                        </div>
                                         <div class="mb-3 col-md-6">
                                             <div class="form-group">
                                                 <div class="custom-control custom-checkbox mt-4">
@@ -60,12 +88,15 @@
 </div>
 @endsection
 @section('plugin-script')
-
+<script type="text/javascript" src="{{ URL::asset('assets/libs/twitter-bootstrap-wizard/jquery.bootstrap.wizard.min.js') }}"></script>
+<script type="text/javascript" src="{{ URL::asset('assets/libs/jquery-fancy-file-uploader/fancy-file-uploader/jquery.ui.widget.js') }}"></script>
+<script type="text/javascript" src="{{ URL::asset('assets/libs/jquery-fancy-file-uploader/fancy-file-uploader/jquery.fileupload.js') }}"></script>
+<script type="text/javascript" src="{{ URL::asset('assets/libs/jquery-fancy-file-uploader/fancy-file-uploader/jquery.iframe-transport.js') }}"></script>
+<script type="text/javascript" src="{{ URL::asset('assets/libs/jquery-fancy-file-uploader/fancy-file-uploader/jquery.fancy-fileupload.js') }}"></script>
 @endsection 
 @section('custom-script')
 <script type="text/javascript">
 $(document).ready(function () {
-    
     var l;
     $('#category_section').validate({
     errorClass: 'is-invalid',
@@ -112,8 +143,10 @@ $(document).ready(function () {
                         position: 'top-right',
                         hideAfter: 5000,
                         loader: false,
-                    });		}
+                    });
                     window.location.replace("{{route('admin.category')}}");	
+                }
+                    
             },
             error: function (jqXHR, exception) {
                 var msg = '';
@@ -150,6 +183,36 @@ $(document).ready(function () {
     });
 
 });
-
+$('#banner').FancyFileUpload({
+    fileupload: {
+        maxChunkSize: 10000000,
+        formData : {
+            id: $('#temporary_id').val(),
+        },
+        retries : 1,
+    },
+    accept :['png','jpg','jpeg'], 
+    added: function(e, data) {
+        if (typeof(data.ff_info.errors[0]) !== "undefined") {
+            return false;
+        }
+        if($(".ff_fileupload_queued").length > 1)
+        {
+            $(".ff_fileupload_queued").first().find('.ff_fileupload_remove_file').trigger('click');
+        }
+        var file = data.files[0];
+        if(file)
+        {
+            var reader = new FileReader();
+            reader.onload = function(){
+                $("#uploaded_image").attr("src", reader.result);
+                $('#logo_note').addClass('d-none');
+                $("#banner_image").val(reader.result);
+            }
+            reader.readAsDataURL(file);
+            $(".ff_fileupload_queued").first().find('.ff_fileupload_remove_file').trigger('click');
+        }
+    },
+});
 </script>
 @endsection 

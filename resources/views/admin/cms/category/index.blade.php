@@ -2,7 +2,7 @@
 @section('custom-css')
 <link href="{{ URL::asset('css/leads.css') }}" rel="stylesheet" type="text/css" />
 @endsection
-@section('meta_page_title','Banner List | Tenantden')
+@section('meta_page_title','Category List | Shriram')
 @section('content')
 <div class="container-fluid mt-3">
     <div class="row"> 
@@ -21,6 +21,7 @@
                     <table id="categryTable" class="table dt-responsive nowrap w-100">
                         <thead>
                             <tr>
+                                <th>Banner</th>
                                 <th>Name</th>
                                 <th>Slug</th>
                                 <th>Status</th>
@@ -86,6 +87,7 @@
         }
     ],
     columns: [
+        {data:'image',name:'image'},
         {data: 'name', name: 'name'},
         {data: 'slug', name: 'slug'},
         {data: 'status', name: 'status'},
