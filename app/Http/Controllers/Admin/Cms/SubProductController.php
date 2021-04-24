@@ -11,6 +11,7 @@ use App\Models\Shape;
 use App\Models\Metal;
 use App\Models\Color;
 use App\Models\ProductBanner;
+use App\Models\Category;
 
 use App\Rules\ValidateIsimage; 
 
@@ -65,7 +66,7 @@ class SubProductController extends Controller
             </div></div>';
             return $str;
           })
-        ->rawColumns(['image','title','sub_title','name','category','status','action'])
+        ->rawColumns(['image','title','sub_title','name','category','product_category','status','action'])
         ->make(true);
    }
    public function createView()
@@ -74,8 +75,8 @@ class SubProductController extends Controller
        $color = Color::where('status','1')->pluck('name','id')->toArray();
        $shape = Shape::where('status','1')->pluck('name','id')->toArray();
        $metals = Metal::where('status','1')->pluck('name','id')->toArray();
-       
-       return view('admin.cms.sub_product.create',compact('product','color','shape','metals'));
+       $category = Category::where('status','1')->pluck('name','id')->toArray();
+       return view('admin.cms.sub_product.create',compact('product','color','shape','metals','category'));
    }
    public function createStore(Request $request)
    {
@@ -87,6 +88,7 @@ class SubProductController extends Controller
           'parent_id' => 'required',
           'title' => 'required|string',
            'sub_title' => 'required|string',
+           'category_id'=>'nullable',
            'banner_image' => ['required',new ValidateIsimage()],
            'rate'=>'nullable',
             'metal_type'=>'nullable',
@@ -150,6 +152,7 @@ class SubProductController extends Controller
         
         ProductInfo::create([
             'product_id'=>$product->id,
+            'category_id'=>$attributes['category_id']??Null,
             'rate'=>$attributes['rate'],
             'metal_type'=>$attributes['metal_type'],
             'purity'=>$attributes['purity'],
@@ -209,6 +212,7 @@ class SubProductController extends Controller
               'parent_id' => 'required',
               'title' => 'required|string',
                'sub_title' => 'required|string',
+               'category_id'=>'nullable',
                //'banner_image' => ['required',new ValidateIsimage()],
                'rate'=>'nullable',
                 'metal_type'=>'nullable',
@@ -284,6 +288,7 @@ class SubProductController extends Controller
            
             $product->info->update([
                 'product_id'=>$product->id,
+                'category_id'=>$attributes['category_id']??Null,
                 'rate'=>$attributes['rate'],
                 'metal_type'=>$attributes['metal_type'],
                 'purity'=>$attributes['purity'],

@@ -16,6 +16,7 @@ class CreateProductInfosTable extends Migration
         Schema::create('product_infos', function (Blueprint $table) {
             $table->id();
             $table->integer('product_id');
+            $table->integer('category_id')->nullable();
             $table->enum('rate',['1', '2','3','4','5'])->default('4');
             $table->string('metal_type')->nullable();
             $table->string('purity',50)->nullable();

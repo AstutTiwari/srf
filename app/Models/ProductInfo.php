@@ -12,6 +12,7 @@ class ProductInfo extends Model
     protected $fillable = [
         'id',
         'product_id',
+        'category_id',
         'rate',
         'metal_type',
         'purity',
@@ -39,4 +40,8 @@ class ProductInfo extends Model
         'final_value',
         'gst'
     ];
+    public function category()
+    {
+        return $this->belongsTo('App\Models\Category','category_id');
+    }
 }

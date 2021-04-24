@@ -38,6 +38,11 @@
 									    	<label for="parent_id" id="parent_id-error" generated="true" class="is-invalid" style="display:none"></label>
 		                                </div>
                                         <div class="mb-3 col-md-6">
+		                                    <label class="col-form-label" for="category_id">Product Category</label>
+									    	{!! Form::select('category_id',$category,@$product->info->category_id,['class'=>'form-control selectpicker','data-live-search' => "true",'data-size' => "4",'id'=>'category_id','placeholder'=>'Please select the category']) !!}
+									    	<label for="category_id" id="category_id-error" generated="true" class="is-invalid" style="display:none"></label>
+		                                </div>
+                                        <div class="mb-3 col-md-6">
 		                                    <label class="col-form-label" for="title">Title<span class="required">*</span></label>
 											{!! Form::textarea('title',@$product->title,['class'=>'form-control required','id'=>'title', 'rows' => 10, 'cols' => 30]) !!}
 											<label for="title" id="title-error" generated="true" class="is-invalid" style="display:none"></label>
