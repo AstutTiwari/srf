@@ -35,6 +35,8 @@ class HomeController extends Controller
         $popular_products = PopularProduct::orderBy('id', 'desc')->where('status','1')->take(3)->get();
         $contact = AdminContactus::find('1');
         $socials = Social::where('status','1')->get();
-        return view('home',compact('banners','product_banners','products','popular_products','contact','socials'));
+        $rings = Product::where(['parent_id'=>'0','status'=>'1','category_id'=>'6'])->get();
+        $erings = Product::where(['parent_id'=>'0','status'=>'1','category_id'=>'2'])->get();
+        return view('home',compact('banners','product_banners','products','popular_products','contact','socials','rings','erings'));
     }
 }

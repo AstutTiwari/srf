@@ -113,14 +113,10 @@
 														<div class="mega-list-cat">
 															<h2 class="title18 play-font font-bold dark">Popular Ring Types</h2>
 															<ul class="list-none">
-																<li><a href="#">Daily Wear</a></li> 
-																<li><a href="#">Office Wear</a></li>
-																<li><a href="#">Men</a></li>
-																<li><a href="#">Women</a></li>
-																<li><a href="#">Engagement</a></li>
-																
-																<li><a href="#">Cocktail</a></li>
-																
+															
+																@foreach($rings as $ring)
+																	<li><a href="#">{{@$ring->slug}}</a></li> 
+																@endforeach
 															</ul>
 														</div>
 													</div> 
@@ -146,7 +142,6 @@
 																<li><a href="#">Gold</a></li>
 																<li><a href="#">Gemstone</a></li>
 																<li><a href="#">Silver</a></li>
-																
 															</ul>
 														</div>
 													</div>
@@ -167,14 +162,9 @@
 														<div class="mega-list-cat">
 															<h2 class="title18 play-font font-bold dark">Popular EarRing Types</h2>
 															<ul class="list-none">
-																<li><a href="#">Stud</a></li> 
-																<li><a href="#">Drop</a></li>
-																<li><a href="#">Hoops</a></li>
-																<li><a href="#">Jhumkas</a></li>
-																<li><a href="#">Sui Dhaga</a></li>
-																
-																<li><a href="#">Ear Cuffs</a></li>
-																
+															@foreach($erings as $ering)
+																<li><a href="#">{{@$ering->slug}}</a></li> 
+															@endforeach
 															</ul>
 														</div>
 													</div> 
@@ -226,9 +216,7 @@
 																<li><a href="#">Men</a></li>
 																<li><a href="#">Women</a></li>
 																<li><a href="#">Engagement</a></li>
-																
 																<li><a href="#">Cocktail</a></li>
-																
 															</ul>
 														</div>
 													</div> 

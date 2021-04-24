@@ -1,7 +1,5 @@
 @extends('layouts.auth.master')
 @section('content')
-
-
 <section id="content" >
 		<div class="banner-slider banner-jewelry2 bg-slider parallax-slider">
 			<div class="wrap-item" data-navigation="true" data-transition="fade" data-itemscustom="[[0,1]]">
