@@ -6,7 +6,7 @@
 						<div class="hot-news pull-left">
 						    	<div class="logo logo1 pull-left">
 							
-								<a href="index.html" class="product-thumb-link zoom-thumb"><img src="images/home/fashion/logo.png" alt=""></a>		
+								<a href="index.html" class="product-thumb-link zoom-thumb"><img src="{{URL::asset('images/home/fashion/logo.png')}}" alt=""></a>		
 								
 							</div>
 						
