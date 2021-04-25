@@ -48,4 +48,13 @@ class HomeController extends Controller
         $products = Product::where(['parent_id'=>$id,'status'=>'1'])->get();
         return view('product',compact('contact','socials','rings','erings','products'));
     }
+    public function category()
+    {
+        $contact = AdminContactus::find('1');
+        $socials = Social::where('status','1')->get();
+        $rings = Product::where(['parent_id'=>'0','status'=>'1','category_id'=>'6'])->get();
+        $erings = Product::where(['parent_id'=>'0','status'=>'1','category_id'=>'2'])->get();
+        $products = Product::where(['parent_id'=>$id,'status'=>'1'])->get();
+        return view('category_page',compact('contact','socials','rings','erings','products'));
+    }
 }

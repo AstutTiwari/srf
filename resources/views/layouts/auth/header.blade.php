@@ -115,7 +115,7 @@
 															<ul class="list-none">
 															
 																@foreach($rings as $ring)
-																	<li><a href="{{route('home.product',['id'=>@$ring->id])}}">{{@$ring->slug}}</a></li> 
+																	<li><a href="{{route('home.category',['id'=>@$ring->id])}}">{{@$ring->slug}}</a></li> 
 																@endforeach
 															</ul>
 														</div>
@@ -163,7 +163,7 @@
 															<h2 class="title18 play-font font-bold dark">Popular EarRing Types</h2>
 															<ul class="list-none">
 															@foreach($erings as $ering)
-																<li><a href="{{route('home.product',['id'=>@$ering->id])}}">{{@$ering->slug}}</a></li> 
+																<li><a href="{{route('home.category',['id'=>@$ering->id])}}">{{@$ering->slug}}</a></li> 
 															@endforeach
 															</ul>
 														</div>

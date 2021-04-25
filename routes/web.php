@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\Cms\SubProductController;
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home.index');
 Route::get('/product/{id}', [App\Http\Controllers\HomeController::class, 'product'])->name('home.product');
+Route::get('/category/{id}', [App\Http\Controllers\HomeController::class, 'category'])->name('home.category');
 Auth::routes();
 
 
