@@ -48,7 +48,7 @@ class HomeController extends Controller
         $products = Product::where(['parent_id'=>$id,'status'=>'1'])->get();
         return view('product',compact('contact','socials','rings','erings','products'));
     }
-    public function category()
+    public function category(Request $request,$id)
     {
         $contact = AdminContactus::find('1');
         $socials = Social::where('status','1')->get();
