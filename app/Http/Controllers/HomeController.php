@@ -39,4 +39,13 @@ class HomeController extends Controller
         $erings = Product::where(['parent_id'=>'0','status'=>'1','category_id'=>'2'])->get();
         return view('home',compact('banners','product_banners','products','popular_products','contact','socials','rings','erings'));
     }
+    public function product(Request $request,$id)
+    {
+        $contact = AdminContactus::find('1');
+        $socials = Social::where('status','1')->get();
+        $rings = Product::where(['parent_id'=>'0','status'=>'1','category_id'=>'6'])->get();
+        $erings = Product::where(['parent_id'=>'0','status'=>'1','category_id'=>'2'])->get();
+        $products = Product::where(['parent_id'=>$id,'status'=>'1'])->get();
+        return view('product',compact('contact','socials','rings','erings','products'));
+    }
 }
