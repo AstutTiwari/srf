@@ -202,7 +202,7 @@
 											</div>
 										</div>
 									</li>
-	<li class="menu-item-has-children has-mega-menu">
+									<li class="menu-item-has-children has-mega-menu">
 										<a href="#">Shop By Category</a>
 										<div class="mega-menu full-mega-menu">
 											<div class="content-mega-menu">
