@@ -17,7 +17,7 @@
                         <div class="block-footer2">
                             <div class="logo logo-footer2 text-center">
                                 
-                            <a href="#" ><img src="{{URL::asset('images/home/fashion/logo1a.png'}}" alt=""></a>
+                            <a href="#" ><img src="{{URL::asset('images/home/fashion/logo1a.png')}}" alt=""></a>
                                 </a>
                             </div>
                             <h2 class="title18 play-font  white text-center text-uppercase font-bold">FOLLOW US ON</h2>
