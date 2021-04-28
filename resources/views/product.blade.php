@@ -1,6 +1,6 @@
 @extends('layouts.auth.master')
 @section('content')
-<section id="content">
+<section id="content" style="background:white">
 	<div class="wrap-bread-crumb">
 		<div class="container">
 			<div class="bread-crumb">

@@ -1637,8 +1637,7 @@ div.table .product-info .product-title {
   top: 65px;
   width: 70px;
   height: 70px;
-  -webkit-animation-delay: 0.2s;
-  animation-delay: 0.2s;
+  backgroud:"images/home/fashion/loader.gif";
 }
 .preload #object_three {
   left: 55px;
