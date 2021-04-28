@@ -258,7 +258,7 @@
 									<div class="col-md-4 col-sm-6 col-xs-6">
 										<div class="item-product item-product4 text-center border">
 											<div class="product-thumb">
-												<a href="#" class="product-thumb-link zoom-thumb"><img src="{{ URL::asset($image)}}" alt="{{$product->banner_name}}"></a>
+												<a href="{{route('home.product',['id'=>$product->id])}}" class="product-thumb-link zoom-thumb"><img src="{{ URL::asset($image)}}" alt="{{$product->banner_name}}"></a>
 												<a href="quick-view.html" class="quickview-link fancybox.iframe title12 round white"><i class="fa fa-search"></i></a>
 											</div>
 											<div class="product-info">
