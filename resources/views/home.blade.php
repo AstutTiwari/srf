@@ -327,7 +327,7 @@
 		   <div class="container">
 			    <div class="row">
 					<div class="col-sm-10 col-xs-12">
-						<script defer async src='https://cdn.trustindex.io/loader.js?9413fed2259d254b6e5d6ecea6'></script>
+						<div id="google-reviews"></div>
 					</div>
 					<div class="col-sm-2 col-xs-12">
 					<div id="banner1"></div>

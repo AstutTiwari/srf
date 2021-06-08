@@ -11,7 +11,7 @@
     <script src="{{ URL::asset('/assets/js/libs/timecircles.min.js') }}"></script>
     <script src="{{ URL::asset('/assets/js/libs/wow.min.js') }}"></script>
     <script src="{{ URL::asset('/assets/js/theme.js') }}"></script>
-     <script type="text/javascript" src="https://www.bullionvault.com/banners/live_price_widget.js"></script>
+     
      <script src="{{ URL::asset('/assets/js/popup.js')}}"></script>
 
 @yield('plugin-script')
@@ -29,14 +29,5 @@
     });
 </script>
 
-<script type="text/javascript">
-		var options = {
-			referrerID: "SHRIRAM123",
-			size: "250x250",
-			bullion: "gold",
-			currency: "USD",
-			weightUnit: "KG"
-		};
-		new BullionVaultPriceWidget('banner1', options);
-	</script> 
+
 @yield('custom-script')

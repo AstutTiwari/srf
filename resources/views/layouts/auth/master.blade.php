@@ -10,6 +10,20 @@
         <meta name="keywords" content="@yield('meta_page_keyword')">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         @include('layouts.auth.head-script') 
+            <script src="/js/google-places.js "></script>
+    
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyApxu4FD8reY77Xr9FzmBQZpvyU0VoBmqE"></script>
+
+<script>
+    jQuery(document).ready(function() {
+        $("#google-reviews").googlePlaces({
+            placeId: 'ChIJK8jCTKAZDTkRvap-4oV7-OQ',
+            render: ['reviews'],
+            min_rating: 1,
+            max_rows: 3
+        });
+    });
+</script>
         
     </head>
 

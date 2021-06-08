@@ -18,6 +18,21 @@
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('/assets/css/browser.css') }}" media="all"/>
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('/assets/css/popup.css')}}" media="all"/>
     
+    <script src="/js/google-places.js "></script>
+    
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyApxu4FD8reY77Xr9FzmBQZpvyU0VoBmqE"></script>
+
+<script>
+    jQuery(document).ready(function() {
+        $("#google-reviews").googlePlaces({
+            placeId: 'ChIJK8jCTKAZDTkRvap-4oV7-OQ',
+            render: ['reviews'],
+            min_rating: 1,
+            max_rows: 3
+        });
+    });
+</script>
+    
 
 <style type="text/css">
 	.error {
